@@ -1,0 +1,30 @@
+.intro {
+  position: relative;
+  padding-top: clamp(7rem, 11vh, 9rem);
+  padding-bottom: clamp(2rem, 4vw, 3.25rem);
+  overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 0%, #0c0c14 0%, #050506 70%);
+}
+.title {
+  margin-top: 1.5rem;
+  font-size: var(--ll-text-3xl);
+  color: var(--ll-ivory);
+  max-width: 18ch;
+}
+.lede {
+  margin-top: 1.75rem;
+  max-width: 52ch;
+  font-size: var(--ll-text-lg);
+  line-height: 1.7;
+  color: var(--ll-text-muted);
+}
+.glow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 169, 110, 0.12), transparent 65%);
+  pointer-events: none;
+}
