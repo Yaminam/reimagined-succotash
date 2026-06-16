@@ -36,6 +36,7 @@
 .action {
   display: inline-flex;
   align-items: center;
+  min-height: 40px;
   gap: 0.4rem;
   font-size: var(--ll-text-sm);
   color: var(--ll-gold);

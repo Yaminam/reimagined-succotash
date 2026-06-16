@@ -19,3 +19,8 @@
   filter: blur(40px);
   will-change: transform;
 }
+/* The blurred, screen-blended glow is costly to repaint on phones —
+   drop it on small screens for smoother scrolling. */
+@media (max-width: 700px) {
+  .layer { display: none; }
+}

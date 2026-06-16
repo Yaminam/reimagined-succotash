@@ -84,16 +84,23 @@
   gap: var(--ll-text-base);
 }
 .locale {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
   font-size: var(--ll-text-xs);
   letter-spacing: 0.2em;
   color: var(--ll-ivory);
-  padding: 0.4rem 0.7rem;
+  padding: 0.4rem 0.85rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 999px;
 }
 .burger {
   width: 26px;
   height: 16px;
+  box-sizing: content-box;
+  /* expand the touch target without shifting layout */
+  padding: 0.7rem 0.5rem;
+  margin: -0.7rem -0.5rem -0.7rem 0;
   display: inline-flex;
   flex-direction: column;
   justify-content: space-between;
