@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Reveal from "@/components/site/Reveal";
 import Faq from "@/components/site/Faq";
+import Marquee from "@/components/site/Marquee";
 import { JsonLd, breadcrumbSchema, webPageSchema } from "@/lib/seo/jsonld";
 import { PAGES } from "@/content/pages";
 import { EMPLOYER_PILLARS, CAREER_AREAS, CAREERS_FAQS } from "@/content/india";
@@ -13,16 +14,14 @@ const photos = [
   ...new Set(
     (page?.blocks ?? [])
       .filter((b): b is { t: "img"; v: string; alt: string } => b.t === "img")
-      .map((b) => b.v),
-  ),
-];
+      .map((b) => b.v))];
 const hero = photos[0] ?? null;
 const band = photos[1] ?? photos[0] ?? null;
 
 export const metadata: Metadata = {
   title: "Careers",
   description:
-    "Build your career with one of India's leading premium spirits companies — ownership from day one, brands worth building, and growth across the Pernod Ricard group.",
+    "Build your career with one of India's leading premium spirits companies, ownership from day one, brands worth building, and growth across the Pernod Ricard group.",
   alternates: { canonical: "/careers" },
 };
 
@@ -35,9 +34,7 @@ export default function CareersPage() {
           webPageSchema({ name: "Careers", description: metadata.description as string, path: "/careers" }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Careers", path: "/careers" },
-          ]),
-        ]}
+            { name: "Careers", path: "/careers" }])]}
       />
 
       <header className={styles.hero}>
@@ -52,7 +49,7 @@ export default function CareersPage() {
           <Reveal delay={0.05}><h1 className={`ll-display ${styles.title}`}>Build something that lasts.</h1></Reveal>
           <Reveal delay={0.1}>
             <p className={styles.lede}>
-              Join one of India&apos;s leading premium spirits companies — a place where you are
+              Join one of India&apos;s leading premium spirits companies, a place where you are
               trusted to lead early, given brands worth building, and able to grow across the
               wider Pernod Ricard group.
             </p>
@@ -78,6 +75,9 @@ export default function CareersPage() {
           </ul>
         </div>
       </section>
+
+      {/* Kinetic functions band */}
+      <Marquee items={CAREER_AREAS.map((a) => a.name)} reverse />
 
       {/* Functional areas */}
       <section className={`ll-section ${styles.areasSec}`}>

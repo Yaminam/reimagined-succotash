@@ -10,7 +10,7 @@ import styles from "./contact.module.css";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "The right entry points into Pernod Ricard India — for media, investors, talent, trade partners, policy stakeholders and general enquiries.",
+    "The right entry points into Pernod Ricard India, for media, investors, talent, trade partners, policy stakeholders and general enquiries.",
   alternates: { canonical: "/contact" },
 };
 
@@ -31,16 +31,14 @@ export default function ContactPage() {
           webPageSchema({ name: "Contact", description: metadata.description as string, path: "/contact" }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Contact", path: "/contact" },
-          ]),
-        ]}
+            { name: "Contact", path: "/contact" }])]}
       />
 
       <PageIntro
         index="07"
         eyebrow="Contact"
         title="Find the right door into the company."
-        lede="Media, investors, talent, partners and policy stakeholders — every audience has a dedicated way to reach us."
+        lede="Media, investors, talent, partners and policy stakeholders, every audience has a dedicated way to reach us."
       />
 
       <section className="ll-section" style={{ paddingTop: 0 }}>

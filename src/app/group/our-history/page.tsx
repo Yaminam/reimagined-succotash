@@ -4,6 +4,7 @@ import PageIntro from "@/components/site/PageIntro";
 import Reveal from "@/components/site/Reveal";
 import { JsonLd, breadcrumbSchema, webPageSchema } from "@/lib/seo/jsonld";
 import { PAGES } from "@/content/pages";
+import HistoryTimeline from "./HistoryTimeline";
 import styles from "./history.module.css";
 
 export const metadata: Metadata = {
@@ -29,7 +30,13 @@ export default function OurHistoryPage() {
   const hero = PAGES["group-history"]?.hero;
   const imgs = (PAGES["group-history"]?.blocks ?? [])
     .filter((b): b is { t: "img"; v: string; alt: string } => b.t === "img")
-    .map((b) => b.v);
+    .map((b) => b.v)
+    .filter((v) => v !== hero);
+  // give roughly every other milestone an image, drawn from the page's own set
+  const timeline = MILESTONES.map((m, i) => ({
+    ...m,
+    img: i % 2 === 1 ? imgs[Math.floor(i / 2) % Math.max(1, imgs.length)] : undefined,
+  }));
   return (
     <>
       <JsonLd
@@ -66,26 +73,7 @@ export default function OurHistoryPage() {
       <section className={`ll-section ${styles.timelineSec}`}>
         <div className="ll-container">
           <Reveal><p className="ll-eyebrow"><span>·</span> The milestones</p></Reveal>
-          <ol className={styles.timeline}>
-            {MILESTONES.map((m, i) => {
-              const img = i % 2 === 1 ? imgs[(i - 1) / 2] : undefined;
-              return (
-                <Reveal as="li" className={styles.beat} key={m.year} delay={(i % 3) * 0.05}>
-                  <span className={styles.year}>{m.year}</span>
-                  <span className={styles.rail} aria-hidden />
-                  <div className={styles.body}>
-                    <h2 className={styles.beatTitle}>{m.title}</h2>
-                    <p className={styles.beatText}>{m.text}</p>
-                    {img && (
-                      <span className={styles.beatImg}>
-                        <Image src={img} alt={m.title} fill sizes="(max-width: 900px) 100vw, 700px" />
-                      </span>
-                    )}
-                  </div>
-                </Reveal>
-              );
-            })}
-          </ol>
+          <HistoryTimeline items={timeline} />
         </div>
       </section>
     </>

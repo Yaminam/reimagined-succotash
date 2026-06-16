@@ -1,5 +1,5 @@
 /**
- * Newsroom — corporate communications.
+ * Newsroom, corporate communications.
  *
  * Each article carries machine-readable publication dates and a category so
  * NewsArticle schema and freshness signals (§9) can be emitted. Body copy is
@@ -28,8 +28,7 @@ export const ARTICLES: Article[] = [
     body: [
       "Pernod Ricard India today shared a summary of its full-year performance, underlining the resilience of its premium-led portfolio and the strength of its Indian and international brands.",
       "The update points to continued investment in local manufacturing, responsible marketing and the talent agenda, in line with the group's long-term value creation strategy.",
-      "Detailed figures and supporting disclosures are available in the Investors section of this site.",
-    ],
+      "Detailed figures and supporting disclosures are available in the Investors section of this site."],
   },
   {
     slug: "distillery-water-stewardship-milestone",
@@ -40,8 +39,7 @@ export const ARTICLES: Article[] = [
     body: [
       "As part of its 2030 sustainability roadmap, Pernod Ricard India reported progress on water stewardship across its manufacturing and agri-sourcing network.",
       "The work spans efficiency at bottling sites and long-term partnerships with farming communities on responsible soil and water practices.",
-      "Sustainability is governed centrally and reported transparently — see the Sustainability & Responsibility section for the full roadmap.",
-    ],
+      "Sustainability is governed centrally and reported transparently, see the Sustainability & Responsibility section for the full roadmap."],
   },
   {
     slug: "employer-brand-talent-commitment",
@@ -52,8 +50,7 @@ export const ARTICLES: Article[] = [
     body: [
       "Pernod Ricard India outlined fresh commitments to its people agenda, from leadership development to an inclusive and safe workplace culture.",
       "The initiatives reinforce the company's ambition to be among the most attractive employers in the Indian premium-goods sector.",
-      "Current opportunities and the wider talent proposition are set out in the Careers section.",
-    ],
+      "Current opportunities and the wider talent proposition are set out in the Careers section."],
   },
   {
     slug: "premiumisation-drives-portfolio-growth",
@@ -64,8 +61,7 @@ export const ARTICLES: Article[] = [
     body: [
       "Pernod Ricard India pointed to sustained momentum in its premium portfolio, as Indian consumers continue to trade up across whisky and other categories.",
       "The trend reinforces the company's long-term strategy of investing behind quality and brand-building rather than short-term volume.",
-      "The portfolio in a corporate context is set out in the Brands section of this site.",
-    ],
+      "The portfolio in a corporate context is set out in the Brands section of this site."],
   },
   {
     slug: "local-manufacturing-investment",
@@ -76,8 +72,7 @@ export const ARTICLES: Article[] = [
     body: [
       "Pernod Ricard India reaffirmed its commitment to local manufacturing, with continued investment across its distilleries and more than thirty bottling plants nationwide.",
       "Producing close to demand supports quality, supply resilience and the regional economies and livelihoods connected to the company's operations.",
-      "Details of the manufacturing footprint are available in the Operations section.",
-    ],
+      "Details of the manufacturing footprint are available in the Operations section."],
   },
   {
     slug: "responsible-hosting-programme-expansion",
@@ -88,14 +83,11 @@ export const ARTICLES: Article[] = [
     body: [
       "Pernod Ricard India expanded its responsible-hosting and prevention programmes, extending their reach across more markets in the country.",
       "The programmes form part of the company's commitment to conviviality enjoyed responsibly, and are delivered in line with Indian advertising and surrogate guidelines.",
-      "This is a corporate initiative and does not promote the consumption of alcohol.",
-    ],
-  },
-];
+      "This is a corporate initiative and does not promote the consumption of alcohol."],
+  }];
 
 export const ARTICLE_BY_SLUG: Record<string, Article> = Object.fromEntries(
-  ARTICLES.map((a) => [a.slug, a]),
-);
+  ARTICLES.map((a) => [a.slug, a]));
 
 /** Format an ISO date for display without locale-dependent runtime calls. */
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];

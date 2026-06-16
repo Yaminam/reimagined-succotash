@@ -22,10 +22,8 @@ export default function LeadershipPage() {
           webPageSchema({ name: "Leadership & Governance", description: metadata.description as string, path: "/leadership" }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Leadership & Governance", path: "/leadership" },
-          ]),
-          leadershipSchema(LEADERSHIP),
-        ]}
+            { name: "Leadership & Governance", path: "/leadership" }]),
+          leadershipSchema(LEADERSHIP)]}
       />
 
       <PageIntro
@@ -74,7 +72,7 @@ export default function LeadershipPage() {
         </div>
       </section>
 
-      {/* FAQ — answer-ready, emits FAQPage schema */}
+      {/* FAQ, answer-ready, emits FAQPage schema */}
       <Faq items={CORPORATE_FAQS} title="What people ask about Pernod Ricard India." eyebrow="Answers" />
     </article>
   );

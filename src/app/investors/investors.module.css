@@ -44,7 +44,18 @@
 .head { margin-bottom: clamp(1.75rem, 4vw, 2.75rem); }
 .headTitle { margin-top: 1.25rem; font-size: var(--ll-text-3xl); color: var(--ll-ivory); }
 
-/* strategy / extracted content */
+/* strategy statement */
+.statementSec {
+  border-bottom: 1px solid var(--ll-line-soft);
+  background: linear-gradient(180deg, var(--ll-bg) 0%, #0a0c12 100%);
+}
+.statementGrid { display: grid; gap: clamp(1.25rem, 3vw, 2rem); }
+.statement {
+  font-size: var(--ll-text-3xl);
+  font-style: italic;
+  color: var(--ll-ivory);
+  max-width: 30ch;
+}
 .strategySec { border-bottom: 1px solid var(--ll-line-soft); }
 .prose { max-width: 880px; margin-top: 1.5rem; }
 .blockH2 {

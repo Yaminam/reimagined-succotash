@@ -4,9 +4,9 @@ import { BRAND_DETAILS } from "@/content/brands-detail";
 import { ARTICLES } from "@/content/news";
 
 /**
- * XML sitemap (§9 — sitemap discipline). Next emits /sitemap.xml from this.
+ * XML sitemap (§9, sitemap discipline). Next emits /sitemap.xml from this.
  * lastModified is a single build-stamp passed in by the runtime-safe default;
- * we keep priorities editorial — corporate entry points highest.
+ * we keep priorities editorial, corporate entry points highest.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const u = (p: string) => `${SITE_URL}${p}`;
@@ -25,8 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: u("/news"), changeFrequency: "daily", priority: 0.9 },
     { url: u("/contact"), changeFrequency: "yearly", priority: 0.6 },
     { url: u("/documents"), changeFrequency: "monthly", priority: 0.6 },
-    { url: u("/directory"), changeFrequency: "yearly", priority: 0.4 },
-  ];
+    { url: u("/directory"), changeFrequency: "yearly", priority: 0.4 }];
 
   const brands: MetadataRoute.Sitemap = BRAND_DETAILS.map((b) => ({
     url: u(`/brands/${b.slug}`),

@@ -10,7 +10,7 @@ const KEY = "ll-cookie-consent";
  * Cookie consent banner aligned with the Digital Personal Data Protection Act
  * (DPDP). Consent is explicit and opt-in: analytics/marketing cookies are only
  * set after "Accept". A real deployment would wire the stored choice into the
- * tag manager (see [[backend-architecture]] — compliance & data).
+ * tag manager (see [[backend-architecture]], compliance & data).
  */
 export default function CookieConsent() {
   const [show, setShow] = useState(false);
@@ -34,7 +34,7 @@ export default function CookieConsent() {
     <div className={styles.bar} role="region" aria-label="Cookie consent" data-testid="cookie-consent">
       <div className={`ll-container ${styles.inner}`}>
         <p className={styles.copy}>
-          We use essential cookies to run this site, and — only with your consent —
+          We use essential cookies to run this site, and, only with your consent, 
           analytics cookies to understand how it is used. You can change your choice at
           any time. See our <Link href="/contact" className={styles.link}>privacy notice</Link>.
         </p>

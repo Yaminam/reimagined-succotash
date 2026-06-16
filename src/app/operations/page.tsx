@@ -3,13 +3,15 @@ import Link from "next/link";
 import PageIntro from "@/components/site/PageIntro";
 import Reveal from "@/components/site/Reveal";
 import Faq from "@/components/site/Faq";
+import CountUp from "@/components/site/CountUp";
+import Marquee from "@/components/site/Marquee";
 import { JsonLd, breadcrumbSchema, webPageSchema } from "@/lib/seo/jsonld";
 import { OPERATIONS, INDIA_STATS, OPERATIONS_FAQS } from "@/content/india";
 import { absoluteUrl } from "@/lib/site-config";
 import styles from "./operations.module.css";
 
 export const metadata: Metadata = {
-  title: "Operations — manufacturing, supply chain & sourcing",
+  title: "Operations, manufacturing, supply chain & sourcing",
   description:
     "How Pernod Ricard India makes and moves its brands: manufacturing and bottling across the country, a resilient supply chain, and long-term agri-sourcing relationships.",
   alternates: { canonical: "/operations" },
@@ -19,8 +21,7 @@ const PRINCIPLES: { t: string; d: string }[] = [
   { t: "Made close to demand", d: "Production and bottling located near the markets they serve, reducing logistics intensity and supporting regional economies." },
   { t: "Resilient supply chain", d: "A diversified network designed to keep quality consistent and supply dependable across the country." },
   { t: "Responsible sourcing", d: "Long-term relationships with farming communities, with programmes that support responsible water and soil practices." },
-  { t: "Quality without compromise", d: "Distillation, blending and bottling held to the same standard across every site, Indian and international brands alike." },
-];
+  { t: "Quality without compromise", d: "Distillation, blending and bottling held to the same standard across every site, Indian and international brands alike." }];
 
 export default function OperationsPage() {
   return (
@@ -31,16 +32,14 @@ export default function OperationsPage() {
           webPageSchema({ name: "Operations", description: metadata.description as string, path: "/operations" }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Operations", path: "/operations" },
-          ]),
-        ]}
+            { name: "Operations", path: "/operations" }])]}
       />
 
       <PageIntro
         index="04"
         eyebrow="Manufacturing, supply chain & sourcing"
         title="From grain and grape to the finished glass."
-        lede="Our operations footprint turns provenance into product — a national network of manufacturing, bottling and sourcing built for quality, resilience and responsibility."
+        lede="Our operations footprint turns provenance into product, a national network of manufacturing, bottling and sourcing built for quality, resilience and responsibility."
       />
 
       {/* Footprint stats */}
@@ -49,7 +48,7 @@ export default function OperationsPage() {
           {INDIA_STATS.map((s, i) => (
             <Reveal key={s.label} delay={i * 0.06}>
               <div className={styles.stat}>
-                <span className={styles.statValue}>{s.value}</span>
+                <CountUp value={s.value} className={styles.statValue} />
                 <span className={styles.statLabel}>{s.label}</span>
               </div>
             </Reveal>
@@ -75,6 +74,9 @@ export default function OperationsPage() {
           </ol>
         </div>
       </section>
+
+      {/* Kinetic footprint band */}
+      <Marquee items={["Gurugram", "Nashik", "Behror", "30+ bottling plants", "Agri-sourcing", "Made in India"]} />
 
       {/* Principles */}
       <section className={`ll-section ${styles.principlesSec}`}>

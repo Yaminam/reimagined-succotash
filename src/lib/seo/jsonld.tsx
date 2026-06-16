@@ -1,9 +1,9 @@
 /**
- * Schema.org / JSON-LD building blocks (§9 — mandatory).
+ * Schema.org / JSON-LD building blocks (§9, mandatory).
  *
  * Every builder returns a plain object; <JsonLd> serialises it into a
  * <script type="application/ld+json"> tag. These render inside RSC, so the
- * structured data is in the initial HTML — visible to crawlers and to
+ * structured data is in the initial HTML, visible to crawlers and to
  * answer engines (ChatGPT, Gemini, Perplexity, Claude, Google AI Overviews).
  */
 import { SITE_URL, SITE_NAME, SITE_LEGAL_NAME, SITE_DESCRIPTION, ORG, absoluteUrl } from "@/lib/site-config";

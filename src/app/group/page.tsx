@@ -3,11 +3,12 @@ import Link from "next/link";
 import PageIntro from "@/components/site/PageIntro";
 import Reveal from "@/components/site/Reveal";
 import { JsonLd, breadcrumbSchema, webPageSchema } from "@/lib/seo/jsonld";
+import CountUp from "@/components/site/CountUp";
+import Marquee from "@/components/site/Marquee";
 import {
   POSITIONING,
   WHAT_WE_STAND_FOR,
   HOW_WE_OPERATE,
-  INDIA_STORY,
   ECONOMY_CONTRIBUTION,
 } from "@/content/india";
 import styles from "./group.module.css";
@@ -23,8 +24,7 @@ const EXPLORE: { label: string; href: string; note: string }[] = [
   { label: "Leadership & Governance", href: "/leadership", note: "The team and principles that govern the business." },
   { label: "Operations", href: "/operations", note: "Our manufacturing, supply-chain and sourcing footprint." },
   { label: "Our History", href: "/group/our-history", note: "Two centuries of lineage, and three decades in India." },
-  { label: "Role in Society", href: "/group/our-role-society", note: "How we contribute beyond the balance sheet." },
-];
+  { label: "Role in Society", href: "/group/our-role-society", note: "How we contribute beyond the balance sheet." }];
 
 export default function GroupPage() {
   return (
@@ -35,9 +35,7 @@ export default function GroupPage() {
           webPageSchema({ name: "Our Group", description: metadata.description as string, path: "/group" }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Our Group", path: "/group" },
-          ]),
-        ]}
+            { name: "Our Group", path: "/group" }])]}
       />
 
       <PageIntro
@@ -63,7 +61,7 @@ export default function GroupPage() {
             <p className={styles.body}>
               We make and market a portfolio of leading Indian and international brands across
               whisky, wine and other categories. Our scale is real, our standards are
-              international, and our roots — in Indian manufacturing, sourcing and talent — run deep.
+              international, and our roots, in Indian manufacturing, sourcing and talent, run deep.
             </p>
             <p className={styles.body}>
               We are a corporate business, not a consumer storefront: we build brands, livelihoods
@@ -89,6 +87,9 @@ export default function GroupPage() {
         </div>
       </section>
 
+      {/* Kinetic values band */}
+      <Marquee items={WHAT_WE_STAND_FOR.map((v) => v.title)} reverse />
+
       {/* How we operate */}
       <section className={`ll-section ${styles.opsSec}`}>
         <div className="ll-container">
@@ -111,28 +112,11 @@ export default function GroupPage() {
           {ECONOMY_CONTRIBUTION.map((s, i) => (
             <Reveal key={s.label} delay={i * 0.06}>
               <div className={styles.stat}>
-                <span className={styles.statValue}>{s.value}</span>
+                <CountUp value={s.value} className={styles.statValue} />
                 <span className={styles.statLabel}>{s.label}</span>
               </div>
             </Reveal>
           ))}
-        </div>
-      </section>
-
-      {/* The India story */}
-      <section className={`ll-section ${styles.storySec}`}>
-        <div className="ll-container">
-          <Reveal><p className="ll-eyebrow"><span>·</span> The India story</p></Reveal>
-          <Reveal delay={0.05}><h2 className={`ll-display ${styles.h2}`}>Lineage from 1805. A business built since 1993.</h2></Reveal>
-          <ol className={styles.timeline}>
-            {INDIA_STORY.map((m, i) => (
-              <Reveal as="li" className={styles.beat} key={m.year} delay={(i % 3) * 0.05}>
-                <span className={styles.beatYear}>{m.year}</span>
-                <span className={styles.beatRail} aria-hidden />
-                <p className={styles.beatText}>{m.text}</p>
-              </Reveal>
-            ))}
-          </ol>
         </div>
       </section>
 

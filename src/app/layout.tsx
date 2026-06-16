@@ -4,6 +4,8 @@ import Nav from "@/components/site/Nav";
 import Footer from "@/components/site/Footer";
 import AgeGate from "@/components/site/AgeGate";
 import CookieConsent from "@/components/site/CookieConsent";
+import ScrollProgress from "@/components/site/ScrollProgress";
+import ScrollGlow from "@/components/site/ScrollGlow";
 import { JsonLd, organizationSchema, websiteSchema } from "@/lib/seo/jsonld";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/site-config";
 
@@ -53,6 +55,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body className="ll-grain">
         <a href="#main" className="ll-skip">Skip to content</a>
+        <ScrollGlow />
+        <ScrollProgress />
         <AgeGate />
         <Nav />
         <main id="main">{children}</main>

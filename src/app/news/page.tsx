@@ -22,15 +22,13 @@ export default function NewsPage() {
           webPageSchema({ name: "Newsroom", description: metadata.description as string, path: "/news" }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Newsroom", path: "/news" },
-          ]),
-        ]}
+            { name: "Newsroom", path: "/news" }])]}
       />
       <PageIntro
         index="06"
         eyebrow="Newsroom"
         title="The company, in its own words."
-        lede="Results, sustainability progress, people and corporate communications — the record media, partners and stakeholders can rely on."
+        lede="Results, sustainability progress, people and corporate communications, the record media, partners and stakeholders can rely on."
       />
       <section className="ll-section">
         <div className="ll-container">

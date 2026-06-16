@@ -12,12 +12,12 @@ export const SITE_LEGAL_NAME = "Pernod Ricard India Private Limited";
 export const SITE_TAGLINE = "Créateurs de convivialité";
 
 export const SITE_DESCRIPTION =
-  "Pernod Ricard India is one of the country's largest premium spirits companies — a portfolio of leading Indian and international brands across whisky, wine and other categories, part of the Pernod Ricard global group present in more than 70 countries.";
+  "Pernod Ricard India is one of the country's largest premium spirits companies, a portfolio of leading Indian and international brands across whisky, wine and other categories, part of the Pernod Ricard global group present in more than 70 countries.";
 
 /** Real corporate email domain (per the company's published contacts). */
 export const EMAIL_DOMAIN = "pernod-ricard.com";
 
-/** Corporate footprint — used for Organization schema and contact surfaces. */
+/** Corporate footprint, used for Organization schema and contact surfaces. */
 export const ORG = {
   foundingYear: 1993, // Pernod Ricard India incorporated 1993 (CIN U74899DL1993PTC055062)
   parentFoundingYear: 1805,
@@ -34,8 +34,7 @@ export const ORG = {
   },
   sameAs: [
     "https://in.linkedin.com/company/pernodricardindia",
-    "https://www.pernod-ricard.com/en/locations/india",
-  ],
+    "https://www.pernod-ricard.com/en/locations/india"],
 } as const;
 
 export const absoluteUrl = (path = "/") =>

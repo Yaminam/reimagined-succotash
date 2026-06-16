@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Reveal from "@/components/site/Reveal";
 import Faq from "@/components/site/Faq";
+import CountUp from "@/components/site/CountUp";
+import Marquee from "@/components/site/Marquee";
 import { JsonLd, breadcrumbSchema, webPageSchema } from "@/lib/seo/jsonld";
 import { PAGES } from "@/content/pages";
 import {
@@ -18,24 +20,21 @@ const page = PAGES.sustainability;
 export const metadata: Metadata = {
   title: "Sustainability & Responsibility",
   description:
-    "Good Times from a Good Place: Pernod Ricard India's 2030 sustainability roadmap — water stewardship, communities, circular packaging and responsible drinking.",
+    "Good Times from a Good Place: Pernod Ricard India's 2030 sustainability roadmap, water stewardship, communities, circular packaging and responsible drinking.",
   alternates: { canonical: "/sustainability" },
 };
 
-// Real photos from the extracted page — unique only, never the hero, no diagrams.
+// Real photos from the extracted page, unique only, never the hero, no diagrams.
 const photos = [
   ...new Set(
     (page?.blocks ?? [])
       .filter((b): b is { t: "img"; v: string; alt: string } => b.t === "img")
-      .map((b) => b.v),
-  ),
-]
+      .map((b) => b.v))]
   .filter((v) => v !== page?.hero)
   .filter((v) => !/framework|simplified|sdg|7-1|logo/i.test(v));
 
 const RESPONSIBLE_FAQS = CORPORATE_FAQS.filter((f) =>
-  /sustainab|responsib|buy alcohol/i.test(f.q),
-);
+  /sustainab|responsib|buy alcohol/i.test(f.q));
 
 export default function SustainabilityPage() {
   return (
@@ -46,9 +45,7 @@ export default function SustainabilityPage() {
           webPageSchema({ name: "Sustainability & Responsibility", description: metadata.description as string, path: "/sustainability" }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Sustainability & Responsibility", path: "/sustainability" },
-          ]),
-        ]}
+            { name: "Sustainability & Responsibility", path: "/sustainability" }])]}
       />
 
       {/* Hero */}
@@ -77,7 +74,7 @@ export default function SustainabilityPage() {
           {SUSTAINABILITY_STATS.map((s, i) => (
             <Reveal key={s.label} delay={i * 0.06}>
               <div className={styles.stat}>
-                <span className={styles.statValue}>{s.value}</span>
+                <CountUp value={s.value} className={styles.statValue} />
                 <span className={styles.statLabel}>{s.label}</span>
               </div>
             </Reveal>
@@ -112,6 +109,9 @@ export default function SustainabilityPage() {
           </ul>
         </div>
       </section>
+
+      {/* Kinetic pillars band */}
+      <Marquee items={SUSTAINABILITY_PILLARS.map((p) => p.name)} reverse />
 
       {/* India programmes */}
       <section className={`ll-section ${styles.contentSec}`}>

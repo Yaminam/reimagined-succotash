@@ -11,7 +11,7 @@ import styles from "./brands.module.css";
 export const metadata: Metadata = {
   title: "Brands",
   description:
-    "The Pernod Ricard India portfolio in a corporate context — leading Indian-made and international brands across whisky, wine and other categories.",
+    "The Pernod Ricard India portfolio in a corporate context, leading Indian-made and international brands across whisky, wine and other categories.",
   alternates: { canonical: "/brands" },
 };
 
@@ -24,17 +24,15 @@ export default function BrandsPage() {
           webPageSchema({ name: "Brands", description: metadata.description as string, path: "/brands" }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Brands", path: "/brands" },
-          ]),
-          brandsSchema(INDIA_BRANDS),
-        ]}
+            { name: "Brands", path: "/brands" }]),
+          brandsSchema(INDIA_BRANDS)]}
       />
 
       <PageIntro
         index="02"
         eyebrow="The portfolio"
         title="A portfolio of houses, made and shared in India."
-        lede="Leading Indian-made brands alongside international icons. Presented here in a corporate context — the heritage, provenance and role each plays in the business."
+        lede="Leading Indian-made brands alongside international icons. Presented here in a corporate context, the heritage, provenance and role each plays in the business."
       />
 
       {/* Corporate disclosure */}

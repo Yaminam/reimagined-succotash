@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 /**
  * Ambient hero light: soft golden motes drifting upward like light through
  * liquid, plus a large warm glow that eases toward the cursor. Canvas 2D, ~54
- * sprites — featherweight and smooth. Freezes for reduced motion.
+ * sprites, featherweight and smooth. Freezes for reduced motion.
  */
 export default function HeroLight() {
   const ref = useRef<HTMLCanvasElement>(null);

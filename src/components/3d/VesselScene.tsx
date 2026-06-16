@@ -9,8 +9,8 @@ import WebGLGuard from "./WebGLGuard";
 import { VesselFallback } from "./Fallbacks";
 
 /** Client-only canvas hosting the Liquid Light vessel, with bloom.
- *  Renders only while on-screen (and respects reduced motion) so it never
- *  burns the GPU once scrolled past. */
+ * Renders only while on-screen (and respects reduced motion) so it never
+ * burns the GPU once scrolled past. */
 export default function VesselScene() {
   const [reduce, setReduce] = useState(false);
   const [onScreen, setOnScreen] = useState(true);

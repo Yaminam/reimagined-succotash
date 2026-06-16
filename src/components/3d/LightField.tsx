@@ -6,7 +6,7 @@ import { ScreenQuad } from "@react-three/drei";
 import * as THREE from "three";
 
 /**
- * "Liquid Light" — a single fullscreen caustics shader: amber and champagne
+ * "Liquid Light", a single fullscreen caustics shader: amber and champagne
  * light flowing through dark liquid. One draw call, no scene re-render, so it is
  * far cheaper than a transmission mesh. Freezes for reduced motion.
  */
@@ -46,8 +46,8 @@ const fragment = /* glsl */ `
     float lum = caustic * (0.30 + 0.70 * glow);
 
     vec3 obsidian = vec3(0.020, 0.021, 0.030);
-    vec3 amber    = vec3(0.80, 0.46, 0.16);
-    vec3 champ    = vec3(0.96, 0.86, 0.62);
+    vec3 amber = vec3(0.80, 0.46, 0.16);
+    vec3 champ = vec3(0.96, 0.86, 0.62);
     vec3 col = mix(obsidian, amber, clamp(lum * 1.25, 0.0, 1.0));
     col = mix(col, champ, clamp(pow(lum, 3.0) * 0.85, 0.0, 1.0));
 
@@ -61,8 +61,7 @@ export default function LightField({ reduce = false }: { reduce?: boolean }) {
   const mat = useRef<THREE.ShaderMaterial>(null);
   const uniforms = useMemo(
     () => ({ uTime: { value: 0 }, uAspect: { value: 1 } }),
-    [],
-  );
+    []);
 
   useFrame((state) => {
     if (!mat.current) return;

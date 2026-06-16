@@ -12,10 +12,10 @@ const TAGS = {
   span: motion.span,
 } as const;
 
-/** Quiet scroll-reveal: fade + rise, once. (No blur — it could linger on
- *  large elements that never cross a high visibility threshold.)
- *  `as` lets the animated wrapper BE the semantic element (e.g. a list item),
- *  so it can sit directly inside <ul>/<ol> without breaking list semantics. */
+/** Quiet scroll-reveal: fade + rise, once. (No blur, it could linger on
+ * large elements that never cross a high visibility threshold.)
+ * `as` lets the animated wrapper BE the semantic element (e.g. a list item),
+ * so it can sit directly inside <ul>/<ol> without breaking list semantics. */
 export default function Reveal({
   children,
   delay = 0,

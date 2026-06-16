@@ -8,6 +8,7 @@ import { BRAND_BY_SLUG } from "@/content/brands-detail";
 import { INVESTOR_HIGHLIGHTS, INVESTOR_FAQS } from "@/content/india";
 import { JsonLd, breadcrumbSchema, webPageSchema } from "@/lib/seo/jsonld";
 import Faq from "@/components/site/Faq";
+import CountUp from "@/components/site/CountUp";
 import ReportCard from "@/components/site/ReportCard";
 import styles from "./investors.module.css";
 
@@ -18,7 +19,7 @@ const bandImg =
 export const metadata: Metadata = {
   title: "Investors",
   description:
-    "Disclosures, reports and the long-term strategy behind Pernod Ricard India — premiumisation, local manufacturing scale and transparent governance.",
+    "Disclosures, reports and the long-term strategy behind Pernod Ricard India, premiumisation, local manufacturing scale and transparent governance.",
   alternates: { canonical: "/investors" },
 };
 
@@ -26,10 +27,7 @@ const STATS = [
   { value: "Premium-led", label: "Long-term value strategy" },
   { value: "20+", label: "Manufacturing & bottling sites" },
   { value: "70+", label: "Countries in the group" },
-  { value: "1993", label: "In India since" },
-];
-
-const BLOCKS = page?.blocks ?? [];
+  { value: "1993", label: "In India since" }];
 
 const ESSENTIALS = [
   "Full-year & half-year results",
@@ -37,8 +35,7 @@ const ESSENTIALS = [
   "Financial calendar",
   "Share price & dividend",
   "Strategy & outlook",
-  "Governance",
-];
+  "Governance"];
 
 export default function InvestorsPage() {
   return (
@@ -49,9 +46,7 @@ export default function InvestorsPage() {
           webPageSchema({ name: "Investors", description: metadata.description as string, path: "/investors" }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Investors", path: "/investors" },
-          ]),
-        ]}
+            { name: "Investors", path: "/investors" }])]}
       />
       <header className={styles.hero}>
         {page?.hero ? (
@@ -93,7 +88,7 @@ export default function InvestorsPage() {
           {STATS.map((s, i) => (
             <Reveal key={s.label} delay={i * 0.06}>
               <div className={styles.stat}>
-                <span className={styles.statValue}>{s.value}</span>
+                <CountUp value={s.value} className={styles.statValue} />
                 <span className={styles.statLabel}>{s.label}</span>
               </div>
             </Reveal>
@@ -101,29 +96,20 @@ export default function InvestorsPage() {
         </div>
       </section>
 
-      {/* Extracted content from the investor pages */}
-      {BLOCKS.length > 0 && (
-        <section className={`ll-section ${styles.strategySec}`}>
-          <div className="ll-container">
-            <Reveal><p className="ll-eyebrow"><span>·</span> Group context</p></Reveal>
-            <div className={styles.prose}>
-              {BLOCKS.map((b, i) => (
-                <Reveal key={i} delay={(i % 3) * 0.04}>
-                  {b.t === "img" ? (
-                    <span className={styles.figure}>
-                      <Image src={b.v} alt={b.alt || ""} fill sizes="(max-width: 900px) 100vw, 820px" />
-                    </span>
-                  ) : b.t === "h" ? (
-                    <h2 className={b.level <= 2 ? styles.blockH2 : styles.blockH3}>{b.v}</h2>
-                  ) : (
-                    <p className={styles.para}>{b.v}</p>
-                  )}
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      {/* Strategy statement, full-bleed pull quote */}
+      <section className={`ll-section ${styles.statementSec}`}>
+        <div className={`ll-container ${styles.statementGrid}`}>
+          <Reveal>
+            <p className="ll-eyebrow"><span>·</span> Long-term value</p>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <p className={`ll-display ${styles.statement}`}>
+              We invest behind premium brands and a mix that trades up over time, 
+              creating value patiently, and disclosing it transparently.
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
       {/* Reports */}
       {DOCUMENTS.length > 0 && (

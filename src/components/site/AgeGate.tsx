@@ -7,7 +7,7 @@ const KEY = "ll-age-verified";
 
 /**
  * Age verification gate (Indian alco-bev compliance). This is a CORPORATE
- * site, so the gate is a confirmation of legal drinking age — not a consumer
+ * site, so the gate is a confirmation of legal drinking age, not a consumer
  * unlock. Choice persists in localStorage; declining shows a respectful
  * message rather than content. Renders nothing until mounted to avoid a
  * hydration flash, and is hidden from AX tree when inactive.

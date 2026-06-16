@@ -6,11 +6,15 @@ import { STATS } from "@/content/site";
 import { BRAND_DETAILS } from "@/content/brands-detail";
 import { PAGES } from "@/content/pages";
 import { ARTICLES, formatDate } from "@/content/news";
-import { CORPORATE_FAQS, WHAT_WE_STAND_FOR, INDIA_STORY } from "@/content/india";
+import { CORPORATE_FAQS, WHAT_WE_STAND_FOR } from "@/content/india";
 import Faq from "@/components/site/Faq";
+import CountUp from "@/components/site/CountUp";
+import Marquee from "@/components/site/Marquee";
 import styles from "./Home.module.css";
 
-// Many brands share the same generic og:image hero — keep only the first of
+const MARQUEE_BRANDS = [...new Set(BRAND_DETAILS.map((b) => b.name))].slice(0, 16);
+
+// Many brands share the same generic og:image hero, keep only the first of
 // each distinct image so no card repeats.
 const seenHero = new Set<string>();
 const uniqueHero = BRAND_DETAILS.filter((b) => {
@@ -28,7 +32,6 @@ const CATEGORIES = (() => {
 })();
 
 const VALUES = WHAT_WE_STAND_FOR.slice(0, 3);
-const HERITAGE = INDIA_STORY;
 const NEWS = ARTICLES.slice(0, 3);
 
 export default function HomePage() {
@@ -55,13 +58,16 @@ export default function HomePage() {
           {STATS.map((s, i) => (
             <Reveal key={s.label} delay={i * 0.06}>
               <div className={styles.stat}>
-                <span className={styles.statValue}>{s.value}</span>
+                <CountUp value={s.value} className={styles.statValue} />
                 <span className={styles.statLabel}>{s.label}</span>
               </div>
             </Reveal>
           ))}
         </div>
       </section>
+
+      {/* Kinetic brand band */}
+      <Marquee items={MARQUEE_BRANDS} />
 
       {/* Conviviality / values */}
       <section className={`ll-section ${styles.values}`}>
@@ -160,28 +166,10 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* Heritage */}
-      <section className={`ll-section ${styles.heritage}`}>
-        <div className="ll-container">
-          <Reveal><p className="ll-eyebrow"><span>07</span> The light through time</p></Reveal>
-          <Reveal delay={0.05}><h2 className={`ll-display ${styles.heritageTitle}`}>Lineage from 1805. Built in India since 1993.</h2></Reveal>
-          <ol className={styles.timeline}>
-            {HERITAGE.map((m, i) => (
-              <Reveal as="li" className={styles.beat} key={m.year} delay={(i % 3) * 0.05}>
-                <span className={styles.beatYear}>{m.year}</span>
-                <span className={styles.beatRail} aria-hidden />
-                <p className={styles.beatText}>{m.text}</p>
-              </Reveal>
-            ))}
-          </ol>
-          <Reveal delay={0.1}><Link href="/group/our-history" className={styles.cta}>The full history <span aria-hidden>→</span></Link></Reveal>
-        </div>
-      </section>
-
       {/* Newsroom teaser */}
       <section className={`ll-section ${styles.news}`}>
         <div className="ll-container">
-          <Reveal><p className="ll-eyebrow"><span>08</span> From the newsroom</p></Reveal>
+          <Reveal><p className="ll-eyebrow"><span>07</span> From the newsroom</p></Reveal>
           <ul className={styles.newsList}>
             {NEWS.map((a, i) => (
               <Reveal as="li" key={a.slug} delay={i * 0.05}>
@@ -200,7 +188,7 @@ export default function HomePage() {
       <section className={`ll-section ${styles.sustain}`}>
         <div className={`ll-container ${styles.sustainGrid}`}>
           <div className={styles.sustainText}>
-            <Reveal><p className="ll-eyebrow"><span>09</span> Sustainability &amp; Responsibility</p></Reveal>
+            <Reveal><p className="ll-eyebrow"><span>08</span> Sustainability &amp; Responsibility</p></Reveal>
             <Reveal delay={0.05}><h2 className={`ll-display ${styles.sustainHeading}`}>Good times come from a good place.</h2></Reveal>
             <Reveal delay={0.1}>
               <p className={styles.sustainLede}>
@@ -223,8 +211,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Answer-ready FAQ — emits FAQPage schema for search & answer engines */}
-      <Faq items={CORPORATE_FAQS} title="The questions we are asked most." eyebrow="Answers" index="10" />
+      {/* Answer-ready FAQ, emits FAQPage schema for search & answer engines */}
+      <Faq items={CORPORATE_FAQS} title="The questions we are asked most." eyebrow="Answers" index="09" />
     </>
   );
 }
