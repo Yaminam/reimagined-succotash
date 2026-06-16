@@ -168,3 +168,93 @@
 @media (min-width: 1024px) {
   .wall { grid-template-columns: repeat(5, 1fr); }
 }
+
+/* Corporate portfolio (India-first) */
+.noteSec { padding-top: 0; }
+.note {
+  max-width: 64ch;
+  padding: 1rem 1.25rem;
+  border-left: 1px solid var(--ll-gold);
+  font-size: var(--ll-text-sm);
+  line-height: 1.7;
+  color: var(--ll-text-muted);
+  font-style: italic;
+}
+.portfolioSec { border-top: 1px solid var(--ll-line-soft); }
+.wallSec { border-top: 1px solid var(--ll-line-soft); }
+.h2 {
+  margin-top: 1.25rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  font-size: var(--ll-text-3xl);
+  color: var(--ll-ivory);
+  max-width: 20ch;
+}
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ll-line-soft);
+  border-radius: var(--ll-radius);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  background: var(--ll-bg-2);
+  height: 100%;
+  transition: border-color var(--ll-dur) var(--ll-ease-std), transform var(--ll-dur) var(--ll-ease-std), background-color var(--ll-dur) var(--ll-ease-std);
+}
+.card:hover { border-color: rgba(201, 169, 110, 0.45); transform: translateY(-3px); background: var(--ll-surface); }
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+  font-size: var(--ll-text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ll-gold);
+  transition: gap var(--ll-dur) var(--ll-ease);
+}
+.card:hover .cardLink { gap: 0.8rem; }
+.cardTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.cat {
+  font-size: var(--ll-text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ll-gold);
+}
+.origin {
+  font-size: var(--ll-text-xs);
+  letter-spacing: 0.06em;
+  color: var(--ll-text-faint);
+}
+.name {
+  font-family: var(--ll-serif);
+  font-weight: 300;
+  font-size: var(--ll-text-2xl);
+  color: var(--ll-ivory);
+  margin-bottom: 0.6rem;
+}
+.text {
+  font-size: var(--ll-text-base);
+  line-height: 1.7;
+  color: var(--ll-text-muted);
+  max-width: 48ch;
+  flex: 1;
+}
+@media (min-width: 620px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 960px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}

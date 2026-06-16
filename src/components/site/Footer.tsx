@@ -9,12 +9,12 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`ll-container ${styles.top}`}>
         <div className={styles.brand}>
-          <p className={styles.logo}>Pernod Ricard</p>
-          <p className={styles.tag}>Créateurs de convivialité, since 1805</p>
+          <p className={styles.logo}>Pernod Ricard India</p>
+          <p className={styles.tag}>Créateurs de convivialité</p>
           <p className={styles.resp}>
-            Drink responsibly.
+            This is a corporate website and does not promote the consumption of alcohol.
             <br />
-            You must be of legal drinking age.
+            Please be responsible. You must be of legal drinking age to view this site.
           </p>
         </div>
         <nav className={styles.columns} aria-label="Footer">
@@ -33,7 +33,7 @@ export default function Footer() {
         </nav>
       </div>
       <div className={`ll-container ${styles.legal}`}>
-        <p>© 2026 Pernod Ricard SA</p>
+        <p>© 2026 Pernod Ricard India Private Limited. Part of the Pernod Ricard group.</p>
         <div className={styles.socials}>
           {SOCIALS.map((s) => (
             <a key={s} href="#" className={styles.social} aria-label={s}>{s}</a>

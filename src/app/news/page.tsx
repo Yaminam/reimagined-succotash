@@ -1,34 +1,54 @@
+import type { Metadata } from "next";
+import Link from "next/link";
 import PageIntro from "@/components/site/PageIntro";
+import Reveal from "@/components/site/Reveal";
+import { JsonLd, breadcrumbSchema, webPageSchema } from "@/lib/seo/jsonld";
+import { ARTICLES, formatDate } from "@/content/news";
+import styles from "./news.module.css";
 
-export const metadata = { title: "Newsroom" };
-
-const ITEMS = [
-  ["Press release", "Pernod Ricard reports full-year results"],
-  ["Brands", "A new chapter for an iconic single malt"],
-  ["Sustainability", "Another distillery reaches carbon neutrality"],
-  ["People", "Conviviality at work: behind the house"],
-  ["Innovation", "Investing in the future of craft"],
-  ["Markets", "Growth across premium international spirits"],
-];
+export const metadata: Metadata = {
+  title: "Newsroom",
+  description:
+    "Corporate news, results, sustainability progress and media communications from Pernod Ricard India.",
+  alternates: { canonical: "/news" },
+};
 
 export default function NewsPage() {
   return (
     <>
+      <JsonLd
+        id="ld-news"
+        data={[
+          webPageSchema({ name: "Newsroom", description: metadata.description as string, path: "/news" }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Newsroom", path: "/news" },
+          ]),
+        ]}
+      />
       <PageIntro
-        index="05"
+        index="06"
         eyebrow="Newsroom"
-        title="The house, in its own words."
-        lede="Press releases, brand stories and the moments that move the group forward."
+        title="The company, in its own words."
+        lede="Results, sustainability progress, people and corporate communications — the record media, partners and stakeholders can rely on."
       />
       <section className="ll-section">
-        <div className="ll-container" style={{ display: "grid", gap: "0" }}>
-          {ITEMS.map(([cat, title], i) => (
-            <a key={i} href="#" style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", gap: "1.5rem", alignItems: "center", padding: "1.5rem 0", borderTop: "1px solid var(--ll-line-soft)", color: "var(--ll-text)" }}>
-              <span style={{ fontSize: "var(--ll-text-xs)", letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--ll-gold)", minWidth: "9rem" }}>{cat}</span>
-              <span style={{ fontFamily: "var(--ll-serif)", fontWeight: 300, fontSize: "var(--ll-text-xl)", color: "var(--ll-ivory)" }}>{title}</span>
-              <span aria-hidden style={{ color: "var(--ll-text-faint)" }}>→</span>
-            </a>
-          ))}
+        <div className="ll-container">
+          <ul className={styles.list}>
+            {ARTICLES.map((a, i) => (
+              <Reveal as="li" key={a.slug} delay={(i % 4) * 0.05}>
+                <Link href={`/news/${a.slug}`} className={styles.item}>
+                  <span className={styles.meta}>
+                    <span className={styles.cat}>{a.category}</span>
+                    <time className={styles.date} dateTime={a.datePublished}>{formatDate(a.datePublished)}</time>
+                  </span>
+                  <span className={styles.title}>{a.title}</span>
+                  <span className={styles.excerpt}>{a.excerpt}</span>
+                  <span className={styles.arrow} aria-hidden>→</span>
+                </Link>
+              </Reveal>
+            ))}
+          </ul>
         </div>
       </section>
     </>

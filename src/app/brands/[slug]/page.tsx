@@ -100,10 +100,8 @@ export default async function BrandDetailPage({ params }: { params: Promise<{ sl
             <Reveal><p className="ll-eyebrow"><span>·</span> The range</p></Reveal>
             <ul className={styles.gallery}>
               {gallery.map((src, i) => (
-                <Reveal key={src} delay={(i % 3) * 0.06}>
-                  <li className={styles.shot}>
-                    <Image src={src} alt={`${brand.name}, ${i + 1}`} fill sizes="(max-width: 720px) 50vw, 30vw" />
-                  </li>
+                <Reveal as="li" className={styles.shot} key={src} delay={(i % 3) * 0.06}>
+                  <Image src={src} alt={`${brand.name}, ${i + 1}`} fill sizes="(max-width: 720px) 50vw, 30vw" />
                 </Reveal>
               ))}
             </ul>

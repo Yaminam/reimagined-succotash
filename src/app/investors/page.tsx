@@ -1,9 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import Reveal from "@/components/site/Reveal";
 import { PAGES } from "@/content/pages";
 import { DOCUMENTS } from "@/content/documents";
 import { BRAND_BY_SLUG } from "@/content/brands-detail";
+import { INVESTOR_HIGHLIGHTS, INVESTOR_FAQS } from "@/content/india";
+import { JsonLd, breadcrumbSchema, webPageSchema } from "@/lib/seo/jsonld";
+import Faq from "@/components/site/Faq";
 import ReportCard from "@/components/site/ReportCard";
 import styles from "./investors.module.css";
 
@@ -11,19 +15,19 @@ const page = PAGES.investors;
 const bandImg =
   BRAND_BY_SLUG["martell"]?.hero ?? BRAND_BY_SLUG["mumm"]?.hero ?? BRAND_BY_SLUG["midleton-very-rare"]?.hero ?? null;
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Investors",
-  description: "Results, reports, the AGM and the long-term strategy behind the world's number one in premium international spirits.",
+  description:
+    "Disclosures, reports and the long-term strategy behind Pernod Ricard India — premiumisation, local manufacturing scale and transparent governance.",
+  alternates: { canonical: "/investors" },
 };
 
-const STATS = page?.stats?.length
-  ? page.stats
-  : [
-      { value: "#1", label: "In premium international spirits" },
-      { value: "240+", label: "Premium brands" },
-      { value: "160", label: "Markets" },
-      { value: "1805", label: "Heritage since" },
-    ];
+const STATS = [
+  { value: "Premium-led", label: "Long-term value strategy" },
+  { value: "20+", label: "Manufacturing & bottling sites" },
+  { value: "70+", label: "Countries in the group" },
+  { value: "1993", label: "In India since" },
+];
 
 const BLOCKS = page?.blocks ?? [];
 
@@ -39,6 +43,16 @@ const ESSENTIALS = [
 export default function InvestorsPage() {
   return (
     <article className={styles.page}>
+      <JsonLd
+        id="ld-investors"
+        data={[
+          webPageSchema({ name: "Investors", description: metadata.description as string, path: "/investors" }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Investors", path: "/investors" },
+          ]),
+        ]}
+      />
       <header className={styles.hero}>
         {page?.hero ? (
           <Image className={styles.heroImg} src={page.hero} alt="Pernod Ricard investors" fill sizes="100vw" priority />
@@ -51,12 +65,28 @@ export default function InvestorsPage() {
           <Reveal delay={0.05}><h1 className={`ll-display ${styles.title}`}>Value, created with patience.</h1></Reveal>
           <Reveal delay={0.1}>
             <p className={styles.lede}>
-              {page?.description?.slice(0, 200) ||
-                "Results, reports and the long-term strategy of the world's leading premium international spirits and wine house."}
+              How we create value for the long term: a premium-led strategy, the scale of local
+              manufacturing, and the transparency to be read with confidence.
             </p>
           </Reveal>
         </div>
       </header>
+
+      {/* Equity story */}
+      <section className={`ll-section ${styles.highlightsSec}`}>
+        <div className="ll-container">
+          <Reveal><p className="ll-eyebrow"><span>·</span> The equity story</p></Reveal>
+          <Reveal delay={0.05}><h2 className={`ll-display ${styles.headTitle}`}>Built for long-term value.</h2></Reveal>
+          <ul className={styles.highlights}>
+            {INVESTOR_HIGHLIGHTS.map((h, i) => (
+              <Reveal as="li" className={styles.highlight} key={h.title} delay={(i % 3) * 0.05}>
+                <h3 className={styles.highlightName}>{h.title}</h3>
+                <p className={styles.highlightText}>{h.body}</p>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       <section className={styles.statsBand}>
         <div className={`ll-container ${styles.statsRow}`}>
@@ -75,7 +105,7 @@ export default function InvestorsPage() {
       {BLOCKS.length > 0 && (
         <section className={`ll-section ${styles.strategySec}`}>
           <div className="ll-container">
-            <Reveal><p className="ll-eyebrow"><span>·</span> From the investor pages</p></Reveal>
+            <Reveal><p className="ll-eyebrow"><span>·</span> Group context</p></Reveal>
             <div className={styles.prose}>
               {BLOCKS.map((b, i) => (
                 <Reveal key={i} delay={(i % 3) * 0.04}>
@@ -138,7 +168,7 @@ export default function InvestorsPage() {
           </div>
           <ul className={styles.essGrid}>
             {ESSENTIALS.map((e, i) => (
-              <Reveal key={e} delay={(i % 3) * 0.05}>
+              <Reveal as="li" key={e} delay={(i % 3) * 0.05}>
                 <a href="#" className={styles.ess}>
                   <span className={styles.essNo}>{String(i + 1).padStart(2, "0")}</span>
                   <span className={styles.essName}>{e}</span>
@@ -154,12 +184,14 @@ export default function InvestorsPage() {
         <div className="ll-container">
           <Reveal><p className={`ll-display ${styles.contactLine}`}>Investor relations</p></Reveal>
           <Reveal delay={0.05}>
-            <a href="mailto:investors@pernod-ricard.example" className={styles.cta}>
-              investors@pernod-ricard.example <span aria-hidden>↗</span>
+            <a href="mailto:investors@pernod-ricard.com" className={styles.cta}>
+              investors@pernod-ricard.com <span aria-hidden>↗</span>
             </a>
           </Reveal>
         </div>
       </section>
+
+      <Faq items={INVESTOR_FAQS} title="For investors, answered." eyebrow="Answers" />
     </article>
   );
 }

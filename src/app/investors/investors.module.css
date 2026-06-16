@@ -2,7 +2,7 @@
 
 .hero {
   position: relative;
-  min-height: clamp(48vh, 62vh, 70vh);
+  min-height: clamp(52vh, 66vh, 74vh);
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -21,6 +21,15 @@
 .heroContent { position: relative; z-index: 2; padding-bottom: clamp(2.5rem, 5vw, 4rem); }
 .title { margin-top: 1rem; font-size: var(--ll-text-3xl); color: var(--ll-ivory); max-width: 18ch; }
 .lede { margin-top: 1.25rem; max-width: 54ch; font-size: var(--ll-text-lg); line-height: 1.7; color: var(--ll-text-muted); }
+
+/* Equity story highlights */
+.highlightsSec { border-bottom: 1px solid var(--ll-line-soft); }
+.highlights { list-style: none; margin: clamp(1.5rem, 3vw, 2.5rem) 0 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: clamp(1.25rem, 2.5vw, 2rem); }
+.highlight { border: 1px solid var(--ll-line-soft); border-radius: var(--ll-radius); padding: clamp(1.5rem, 3vw, 2.25rem); background: var(--ll-bg-2); transition: border-color var(--ll-dur) var(--ll-ease-std); }
+.highlight:hover { border-color: rgba(201, 169, 110, 0.4); }
+.highlightName { font-family: var(--ll-serif); font-weight: 300; font-size: var(--ll-text-2xl); color: var(--ll-ivory); margin-bottom: 0.6rem; }
+.highlightText { font-size: var(--ll-text-base); line-height: 1.7; color: var(--ll-text-muted); max-width: 46ch; }
+@media (min-width: 760px) { .highlights { grid-template-columns: repeat(3, 1fr); } }
 
 .statsBand {
   border-block: 1px solid var(--ll-line-soft);

@@ -68,10 +68,6 @@ export default function BrandWall() {
           })}
         </AnimatePresence>
       </motion.ul>
-
-      <p className={styles.count}>
-        Showing {visible.length} of {BRAND_DETAILS.length} brands
-      </p>
     </>
   );
 }

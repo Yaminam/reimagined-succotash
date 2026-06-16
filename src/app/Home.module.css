@@ -46,9 +46,22 @@
 }
 .familiesTitle {
   margin-top: 1.5rem;
-  margin-bottom: clamp(2rem, 4vw, 3rem);
   font-size: var(--ll-text-3xl);
   color: var(--ll-ivory);
+}
+.familiesLede {
+  margin-top: 1.25rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  max-width: 52ch;
+  font-size: var(--ll-text-base);
+  line-height: 1.7;
+  color: var(--ll-text-muted);
+}
+.familyUnit {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.62em;
+  color: var(--ll-text-faint);
 }
 .familyGrid {
   list-style: none;

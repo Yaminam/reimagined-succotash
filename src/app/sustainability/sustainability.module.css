@@ -5,7 +5,7 @@
 /* Hero */
 .hero {
   position: relative;
-  min-height: clamp(60vh, 78vh, 86vh);
+  min-height: clamp(52vh, 66vh, 74vh);
   display: flex;
   align-items: flex-end;
   overflow: hidden;

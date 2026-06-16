@@ -2,7 +2,7 @@
 
 .hero {
   position: relative;
-  min-height: clamp(56vh, 72vh, 80vh);
+  min-height: clamp(52vh, 66vh, 74vh);
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -42,4 +42,15 @@
 .cta { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; font-size: var(--ll-text-sm); color: var(--ll-ivory); border-bottom: 1px solid var(--ll-gold); padding-bottom: 0.35rem; transition: gap var(--ll-dur) var(--ll-ease); }
 .cta:hover { gap: 0.9rem; }
 
+/* Employer pillars */
+.pillarsSec { border-bottom: 1px solid var(--ll-line-soft); }
+.pillars { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: clamp(1.25rem, 2.5vw, 2rem); }
+.pillar { border-left: 1px solid var(--ll-gold); padding-left: clamp(1rem, 2vw, 1.5rem); }
+.pillarNo { font-family: var(--ll-mono); font-size: var(--ll-text-xs); color: var(--ll-gold); }
+.pillarName { font-family: var(--ll-serif); font-weight: 300; font-size: var(--ll-text-2xl); color: var(--ll-ivory); margin-block: 0.5rem 0.6rem; }
+.pillarText { font-size: var(--ll-text-base); line-height: 1.7; color: var(--ll-text-muted); max-width: 46ch; }
+
+.areasSec { }
+
+@media (min-width: 640px) { .pillars { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 760px) { .areas { grid-template-columns: repeat(3, 1fr); } }

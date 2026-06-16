@@ -14,8 +14,8 @@
   /* Light */
   --ll-ivory: #f5f1e6;
   --ll-text: rgba(245, 241, 230, 0.92);
-  --ll-text-muted: rgba(245, 241, 230, 0.58);
-  --ll-text-faint: rgba(245, 241, 230, 0.4);
+  --ll-text-muted: rgba(245, 241, 230, 0.62);
+  --ll-text-faint: rgba(245, 241, 230, 0.56);
 
   /* Champagne / gold accent */
   --ll-gold: #c9a96e;

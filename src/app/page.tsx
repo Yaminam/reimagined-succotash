@@ -5,6 +5,9 @@ import Reveal from "@/components/site/Reveal";
 import { STATS } from "@/content/site";
 import { BRAND_DETAILS } from "@/content/brands-detail";
 import { PAGES } from "@/content/pages";
+import { ARTICLES, formatDate } from "@/content/news";
+import { CORPORATE_FAQS, WHAT_WE_STAND_FOR, INDIA_STORY } from "@/content/india";
+import Faq from "@/components/site/Faq";
 import styles from "./Home.module.css";
 
 // Many brands share the same generic og:image hero — keep only the first of
@@ -24,25 +27,9 @@ const CATEGORIES = (() => {
   return [...counts.entries()].sort((a, b) => b[1] - a[1]);
 })();
 
-const VALUES: [string, string][] = [
-  ["Heritage", "Two centuries of houses, each with a story worth keeping."],
-  ["Craft", "Distillers, blenders and cellar masters who answer only to quality."],
-  ["Conviviality", "We exist for the moments people share, responsibly, the world over."],
-];
-
-const HERITAGE: [string, string][] = [
-  ["1805", "The House of Martell lays the first stone of a cognac dynasty."],
-  ["1938", "Paul Ricard bottles the spirit of Marseille and conviviality is born."],
-  ["1975", "Pernod and Ricard unite. A French house with global ambition."],
-  ["2001", "The Seagram icons join the house, Chivas, Martell and The Glenlivet among them."],
-  ["2022", "The first carbon neutral distillery. Heritage meets responsibility."],
-];
-
-const NEWS: [string, string][] = [
-  ["Results", "Pernod Ricard reports its full-year performance"],
-  ["Brands", "A new chapter for one of our single malts"],
-  ["Sustainability", "Another distillery reaches carbon neutrality"],
-];
+const VALUES = WHAT_WE_STAND_FOR.slice(0, 3);
+const HERITAGE = INDIA_STORY;
+const NEWS = ARTICLES.slice(0, 3);
 
 export default function HomePage() {
   return (
@@ -85,18 +72,16 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className={styles.valuesLede}>
-              Since 1805 we have built a house on one belief: that what we make is only
-              as good as the moments it creates. Three principles hold the light together.
+              We build on one belief: that what we make is only as good as the moments it
+              creates, and the trust we earn making it. In India, three principles hold the light together.
             </p>
           </Reveal>
           <ul className={styles.valueGrid}>
-            {VALUES.map(([t, d], i) => (
-              <Reveal key={t} delay={0.12 + i * 0.06}>
-                <li className={styles.value}>
-                  <span className={styles.valueNo}>{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className={styles.valueName}>{t}</h3>
-                  <p className={styles.valueText}>{d}</p>
-                </li>
+            {VALUES.map((v, i) => (
+              <Reveal as="li" className={styles.value} key={v.title} delay={0.12 + i * 0.06}>
+                <span className={styles.valueNo}>{String(i + 1).padStart(2, "0")}</span>
+                <h3 className={styles.valueName}>{v.title}</h3>
+                <p className={styles.valueText}>{v.body}</p>
               </Reveal>
             ))}
           </ul>
@@ -108,12 +93,20 @@ export default function HomePage() {
         <div className="ll-container">
           <Reveal><p className="ll-eyebrow"><span>04</span> Spirit families</p></Reveal>
           <Reveal delay={0.05}><h2 className={`ll-display ${styles.familiesTitle}`}>Every colour of the craft.</h2></Reveal>
+          <Reveal delay={0.08}>
+            <p className={styles.familiesLede}>
+              The portfolio spans every major category. The figure beside each family is the
+              number of brands it holds.
+            </p>
+          </Reveal>
           <ul className={styles.familyGrid}>
             {CATEGORIES.map(([cat, n], i) => (
-              <Reveal key={cat} delay={(i % 4) * 0.05}>
+              <Reveal as="li" key={cat} delay={(i % 4) * 0.05}>
                 <Link href="/brands" className={styles.family}>
                   <span className={styles.familyName}>{cat}</span>
-                  <span className={styles.familyCount}>{n}</span>
+                  <span className={styles.familyCount} aria-label={`${n} brands`}>
+                    {n}<span className={styles.familyUnit}> brands</span>
+                  </span>
                 </Link>
               </Reveal>
             ))}
@@ -130,7 +123,7 @@ export default function HomePage() {
           </div>
           <ul className={styles.featured}>
             {FEATURED.map((b, i) => (
-              <Reveal key={b.slug} delay={(i % 3) * 0.06} className={styles.featCell}>
+              <Reveal as="li" key={b.slug} delay={(i % 3) * 0.06} className={styles.featCell}>
                 <Link href={`/brands/${b.slug}`} className={styles.feature}>
                   <Image className={styles.featImg} src={b.hero as string} alt={b.name} fill sizes="(max-width: 640px) 100vw, 33vw" />
                   <span className={styles.featShade} />
@@ -151,10 +144,10 @@ export default function HomePage() {
         <section className={`ll-section ${styles.homes}`}>
           <div className="ll-container">
             <Reveal><p className="ll-eyebrow"><span>06</span> Brand homes</p></Reveal>
-            <Reveal delay={0.05}><h2 className={`ll-display ${styles.homesTitle}`}>Forty doors onto the craft, around the world.</h2></Reveal>
+            <Reveal delay={0.05}><h2 className={`ll-display ${styles.homesTitle}`}>Part of a global house of brands.</h2></Reveal>
             <ul className={styles.homeRow}>
               {HOMES.map((b, i) => (
-                <Reveal key={b.slug} delay={(i % 4) * 0.06}>
+                <Reveal as="li" key={b.slug} delay={(i % 4) * 0.06}>
                   <Link href={`/brands/${b.slug}`} className={styles.home}>
                     <Image className={styles.homeImg} src={b.hero as string} alt={b.name} fill sizes="(max-width: 640px) 80vw, 24vw" />
                     <span className={styles.homeShade} />
@@ -171,15 +164,13 @@ export default function HomePage() {
       <section className={`ll-section ${styles.heritage}`}>
         <div className="ll-container">
           <Reveal><p className="ll-eyebrow"><span>07</span> The light through time</p></Reveal>
-          <Reveal delay={0.05}><h2 className={`ll-display ${styles.heritageTitle}`}>Two centuries, one widening beam.</h2></Reveal>
+          <Reveal delay={0.05}><h2 className={`ll-display ${styles.heritageTitle}`}>Lineage from 1805. Built in India since 1993.</h2></Reveal>
           <ol className={styles.timeline}>
-            {HERITAGE.map(([year, text], i) => (
-              <Reveal key={year} delay={(i % 3) * 0.05}>
-                <li className={styles.beat}>
-                  <span className={styles.beatYear}>{year}</span>
-                  <span className={styles.beatRail} aria-hidden />
-                  <p className={styles.beatText}>{text}</p>
-                </li>
+            {HERITAGE.map((m, i) => (
+              <Reveal as="li" className={styles.beat} key={m.year} delay={(i % 3) * 0.05}>
+                <span className={styles.beatYear}>{m.year}</span>
+                <span className={styles.beatRail} aria-hidden />
+                <p className={styles.beatText}>{m.text}</p>
               </Reveal>
             ))}
           </ol>
@@ -192,11 +183,11 @@ export default function HomePage() {
         <div className="ll-container">
           <Reveal><p className="ll-eyebrow"><span>08</span> From the newsroom</p></Reveal>
           <ul className={styles.newsList}>
-            {NEWS.map(([cat, title], i) => (
-              <Reveal key={i} delay={i * 0.05}>
-                <Link href="/news" className={styles.newsItem}>
-                  <span className={styles.newsCat}>{cat}</span>
-                  <span className={styles.newsTitle}>{title}</span>
+            {NEWS.map((a, i) => (
+              <Reveal as="li" key={a.slug} delay={i * 0.05}>
+                <Link href={`/news/${a.slug}`} className={styles.newsItem}>
+                  <span className={styles.newsCat}>{a.category} · {formatDate(a.datePublished)}</span>
+                  <span className={styles.newsTitle}>{a.title}</span>
                   <span className={styles.newsArrow} aria-hidden>→</span>
                 </Link>
               </Reveal>
@@ -231,6 +222,9 @@ export default function HomePage() {
           )}
         </div>
       </section>
+
+      {/* Answer-ready FAQ — emits FAQPage schema for search & answer engines */}
+      <Faq items={CORPORATE_FAQS} title="The questions we are asked most." eyebrow="Answers" index="10" />
     </>
   );
 }
