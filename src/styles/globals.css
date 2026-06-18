@@ -60,6 +60,21 @@ button {
   border-radius: 2px;
 }
 
+/* Lenis smooth scroll (initialised in Providers; classes added to <html>) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
 /* View Transitions, light "pours" between pages */
 @view-transition {
   navigation: auto;

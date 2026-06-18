@@ -5,6 +5,9 @@ import Reveal from "@/components/site/Reveal";
 import Faq from "@/components/site/Faq";
 import CountUp from "@/components/site/CountUp";
 import Marquee from "@/components/site/Marquee";
+import PhotoBreak from "@/components/site/PhotoBreak";
+import BrandHighlights from "@/components/site/BrandHighlights";
+import Magnetic from "@/components/site/Magnetic";
 import { JsonLd, breadcrumbSchema, webPageSchema } from "@/lib/seo/jsonld";
 import { PAGES } from "@/content/pages";
 import {
@@ -136,6 +139,14 @@ export default function SustainabilityPage() {
         </div>
       </section>
 
+      {/* Nurturing terroir */}
+      <PhotoBreak
+        src="/images/pernod/33-the_glenlivet_distillery.jpg"
+        alt="A distillery set into its landscape"
+        eyebrow="Nurturing terroir"
+        caption="From the soil to the served glass, made responsibly."
+      />
+
       {/* Statement */}
       <section className={`ll-section ${styles.statementSec}`}>
         <div className="ll-container">
@@ -146,10 +157,15 @@ export default function SustainabilityPage() {
             </p>
           </Reveal>
           <Reveal delay={0.08}>
-            <Link href="/group/our-role-society" className={styles.cta}>Our role in society <span aria-hidden>→</span></Link>
+            <Magnetic>
+              <Link href="/group/our-role-society" className={styles.cta}>Our role in society <span aria-hidden>→</span></Link>
+            </Magnetic>
           </Reveal>
         </div>
       </section>
+
+      {/* Brands in focus */}
+      <BrandHighlights heading="Made with the same care we ask of ourselves." />
 
       {/* FAQ */}
       <Faq items={RESPONSIBLE_FAQS} title="Sustainability & responsibility, answered." eyebrow="Answers" />

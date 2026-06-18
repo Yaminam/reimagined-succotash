@@ -3,6 +3,7 @@ import Link from "next/link";
 import PageIntro from "@/components/site/PageIntro";
 import Reveal from "@/components/site/Reveal";
 import { JsonLd, breadcrumbSchema, webPageSchema } from "@/lib/seo/jsonld";
+import BrandHighlights from "@/components/site/BrandHighlights";
 import { CONTACT_CHANNELS } from "@/content/india";
 import { ORG } from "@/lib/site-config";
 import styles from "./contact.module.css";
@@ -81,6 +82,9 @@ export default function ContactPage() {
           </Reveal>
         </div>
       </section>
+
+      {/* Brands in focus */}
+      <BrandHighlights heading="A house of brands, made and shared in India." />
     </article>
   );
 }

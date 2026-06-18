@@ -1,12 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import PageIntro from "@/components/site/PageIntro";
 import Reveal from "@/components/site/Reveal";
+import PhotoMarquee from "@/components/site/PhotoMarquee";
+import BrandHighlights from "@/components/site/BrandHighlights";
 import BrandWall from "./BrandWall";
-import { BRAND_BY_SLUG } from "@/content/brands-detail";
+import { BRAND_BY_SLUG, BRAND_DETAILS } from "@/content/brands-detail";
+import { FEATURED } from "@/content/pernod-portfolio";
 import { JsonLd, breadcrumbSchema, webPageSchema, brandsSchema } from "@/lib/seo/jsonld";
 import { INDIA_BRANDS } from "@/content/india";
 import styles from "./brands.module.css";
+
+// Distinct lifestyle photography for the drifting band.
+const MARQUEE_PHOTOS = FEATURED.filter((b) => b.hero).map((b) => ({ src: b.hero as string }));
+
+// Spotlight cards: brands with a hero image and a real detail page, deduped by image.
+const seenHero = new Set<string>();
+const SPOTLIGHTS = BRAND_DETAILS.filter(
+  (b) => b.hero && !seenHero.has(b.hero) && seenHero.add(b.hero),
+).slice(0, 6);
 
 export const metadata: Metadata = {
   title: "Brands",
@@ -46,6 +59,34 @@ export default function BrandsPage() {
           </Reveal>
         </div>
       </section>
+
+      {/* Drifting photography */}
+      <PhotoMarquee images={MARQUEE_PHOTOS} />
+
+      {/* Spotlights */}
+      <section className={`ll-section ${styles.spotlightSec}`}>
+        <div className="ll-container">
+          <Reveal><p className="ll-eyebrow"><span>·</span> Brands in focus</p></Reveal>
+          <Reveal delay={0.05}><h2 className={`ll-display ${styles.h2}`}>A spectrum of houses, each its own light.</h2></Reveal>
+          <ul className={styles.featured}>
+            {SPOTLIGHTS.map((b, i) => (
+              <Reveal as="li" key={b.slug} delay={(i % 3) * 0.06}>
+                <Link href={`/brands/${b.slug}`} className={styles.feature}>
+                  <Image className={styles.featImg} src={b.hero as string} alt={b.name} fill sizes="(max-width: 560px) 100vw, 33vw" />
+                  <span className={styles.featShade} />
+                  <span className={styles.featMeta}>
+                    <span className={styles.featName}>{b.name}</span>
+                    <span className={styles.featCat}>{b.category}</span>
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Brands in focus, the full portfolio as ivory marks */}
+      <BrandHighlights heading="The portfolio, in full." eyebrow="The portfolio" />
 
       {/* India-first corporate portfolio */}
       <section className={`ll-section ${styles.portfolioSec}`}>

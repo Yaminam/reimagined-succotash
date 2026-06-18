@@ -1,0 +1,148 @@
+/* Hide the native arrow on fine pointers, but keep a text caret in fields
+   so typing stays legible. Applied to <html> only while the cursor mounts. */
+.hideNative,
+.hideNative a,
+.hideNative button,
+.hideNative [role="button"],
+.hideNative summary,
+.hideNative label {
+  cursor: none;
+}
+.hideNative input,
+.hideNative textarea,
+.hideNative select,
+.hideNative [contenteditable="true"] {
+  cursor: text;
+}
+
+/* ---- ambient glow (trails the pointer) ---- */
+.glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(228, 212, 168, 0.5),
+    rgba(201, 169, 110, 0.16) 60%,
+    transparent 72%
+  );
+  mix-blend-mode: screen;
+  transition:
+    width 0.25s var(--ll-ease),
+    height 0.25s var(--ll-ease),
+    margin 0.25s var(--ll-ease);
+}
+.glow.active {
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+}
+
+/* ---- the glass cursor ---- */
+.glass {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 501;
+  margin: -13px 0 0 -13px;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45));
+  transition:
+    transform 0.18s var(--ll-ease),
+    scale 0.18s var(--ll-ease);
+}
+.glass svg {
+  display: block;
+  transition: transform 0.28s var(--ll-ease);
+  transform-origin: 12px 21px;
+}
+.glass.active svg {
+  transform: scale(1.12);
+}
+/* tip-and-pour on click */
+.glass.pour svg {
+  transform: rotate(-22deg) translateY(-1px);
+}
+.glass .liquid {
+  transition: opacity 0.2s var(--ll-ease);
+}
+
+/* ---- click splash ---- */
+.splash {
+  position: fixed;
+  z-index: 502;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+.ring {
+  position: absolute;
+  left: -7px;
+  top: -7px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(228, 178, 92, 0.8);
+  mix-blend-mode: screen;
+  animation: ll-ring 600ms var(--ll-ease) forwards;
+}
+.drop {
+  position: absolute;
+  left: -3px;
+  top: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f0cf86, #c87a2c 70%);
+  mix-blend-mode: screen;
+  animation: ll-splash 800ms var(--ll-ease) forwards;
+}
+
+@keyframes ll-ring {
+  0% {
+    transform: scale(0.3);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+@keyframes ll-splash {
+  0% {
+    transform: translate(0, 0) scale(0.5);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  45% {
+    transform: translate(calc(var(--dx) * 0.62), calc(var(--dy) * 0.5 - 10px)) scale(var(--s));
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx), calc(var(--dy) + 14px)) scale(calc(var(--s) * 0.35));
+    opacity: 0;
+  }
+}
+
+@media (pointer: coarse) {
+  .glow,
+  .glass,
+  .splash {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glow,
+  .glass,
+  .splash {
+    display: none;
+  }
+}

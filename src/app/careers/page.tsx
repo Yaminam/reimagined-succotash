@@ -4,10 +4,35 @@ import Image from "next/image";
 import Reveal from "@/components/site/Reveal";
 import Faq from "@/components/site/Faq";
 import Marquee from "@/components/site/Marquee";
+import CountUp from "@/components/site/CountUp";
+import Magnetic from "@/components/site/Magnetic";
+import PhotoBreak from "@/components/site/PhotoBreak";
+import BrandHighlights from "@/components/site/BrandHighlights";
 import { JsonLd, breadcrumbSchema, webPageSchema } from "@/lib/seo/jsonld";
 import { PAGES } from "@/content/pages";
 import { EMPLOYER_PILLARS, CAREER_AREAS, CAREERS_FAQS } from "@/content/india";
+import CareersForm from "./CareersForm";
 import styles from "./careers.module.css";
+
+const LIFE_STATS = [
+  { value: "Créateurs", label: "De convivialité, our purpose" },
+  { value: "23 hrs", label: "Learning per employee, a year" },
+  { value: "Coursera", label: "Unlimited learning access" },
+  { value: "1,400+", label: "Colleagues across India" },
+];
+
+const CARDINAL = [
+  { no: "01", name: "Entrepreneurial spirit", text: "We trust our people to act like owners: to decide, to lead, and to build something that lasts." },
+  { no: "02", name: "Mutual trust", text: "We give and expect candour, respect and freedom in equal measure, across every team and level." },
+  { no: "03", name: "Sense of ethics", text: "We hold to a clear code of conduct, in a regulated category, without exception." },
+];
+
+const WHERE = [
+  { no: "01", name: "Gurugram", text: "Our corporate head office at DLF Cyber City, Haryana." },
+  { no: "02", name: "Mumbai", text: "A commercial and marketing hub on the west coast." },
+  { no: "03", name: "Nashik & Behror", text: "Our distilleries and winery, where the spirits are made." },
+  { no: "04", name: "Nationwide", text: "Sales and operations teams across India's states and union territories." },
+];
 
 const page = PAGES.careers;
 const photos = [
@@ -54,8 +79,46 @@ export default function CareersPage() {
               wider Pernod Ricard group.
             </p>
           </Reveal>
+          <Reveal delay={0.15}>
+            <Magnetic>
+              <Link href="#apply" className={styles.cta}>Submit your interest <span aria-hidden>→</span></Link>
+            </Magnetic>
+          </Reveal>
         </div>
       </header>
+
+      {/* Life here, in numbers */}
+      <section className={styles.statsBand}>
+        <div className={`ll-container ${styles.statsRow}`}>
+          {LIFE_STATS.map((s, i) => (
+            <Reveal key={s.label} delay={i * 0.06}>
+              <div className={styles.stat}>
+                <CountUp value={s.value} className={styles.statValue} />
+                <span className={styles.statLabel}>{s.label}</span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Cardinal values */}
+      <section className={`ll-section ${styles.pillarsSec}`}>
+        <div className="ll-container">
+          <div className={styles.head}>
+            <Reveal><p className="ll-eyebrow"><span>·</span> What we value</p></Reveal>
+            <Reveal delay={0.05}><h2 className={`ll-display ${styles.headTitle}`}>Three values, lived every day.</h2></Reveal>
+          </div>
+          <ul className={styles.pillars}>
+            {CARDINAL.map((c, i) => (
+              <Reveal as="li" className={styles.pillar} key={c.no} delay={(i % 3) * 0.06}>
+                <span className={styles.pillarNo}>{c.no}</span>
+                <h3 className={styles.pillarName}>{c.name}</h3>
+                <p className={styles.pillarText}>{c.text}</p>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       {/* Employer pillars */}
       <section className={`ll-section ${styles.pillarsSec}`}>
@@ -105,6 +168,14 @@ export default function CareersPage() {
         </div>
       </section>
 
+      {/* Life here */}
+      <PhotoBreak
+        src="/images/pernod/27-jameson_distillery_bow_st_bar.jpg"
+        alt="People at work in a convivial setting"
+        eyebrow="Life here"
+        caption="A place to grow, with brands worth building."
+      />
+
       {band && (
         <section className={styles.bandSec}>
           <Image className={styles.bandImg} src={band} alt="Life at Pernod Ricard India" fill sizes="100vw" />
@@ -117,6 +188,31 @@ export default function CareersPage() {
           </div>
         </section>
       )}
+
+      {/* Where you'd work */}
+      <section className={`ll-section ${styles.pillarsSec}`}>
+        <div className="ll-container">
+          <div className={styles.head}>
+            <Reveal><p className="ll-eyebrow"><span>·</span> Where you would work</p></Reveal>
+            <Reveal delay={0.05}><h2 className={`ll-display ${styles.headTitle}`}>Hubs and houses across India.</h2></Reveal>
+          </div>
+          <ul className={styles.pillars}>
+            {WHERE.map((w, i) => (
+              <Reveal as="li" className={styles.pillar} key={w.no} delay={(i % 2) * 0.06}>
+                <span className={styles.pillarNo}>{w.no}</span>
+                <h3 className={styles.pillarName}>{w.name}</h3>
+                <p className={styles.pillarText}>{w.text}</p>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Application form */}
+      <CareersForm areas={CAREER_AREAS.map((a) => a.name)} />
+
+      {/* Brands in focus */}
+      <BrandHighlights heading="The brands you could help build." />
 
       <Faq items={CAREERS_FAQS} title="Working here, answered." eyebrow="Answers" />
     </article>

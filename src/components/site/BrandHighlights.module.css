@@ -1,0 +1,58 @@
+.wrap {
+  border-top: 1px solid var(--ll-line-soft);
+}
+.title {
+  margin-top: 1rem;
+  font-size: var(--ll-text-2xl);
+  max-width: 18ch;
+}
+.grid {
+  list-style: none;
+  margin: clamp(2rem, 4vw, 3.5rem) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 1px;
+  background: var(--ll-line-soft);
+  border: 1px solid var(--ll-line-soft);
+}
+.cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem) 1rem;
+  background: var(--ll-bg);
+  text-align: center;
+  transition: background var(--ll-dur) var(--ll-ease);
+}
+.cell:hover {
+  background: var(--ll-bg-2);
+}
+.logoWrap {
+  position: relative;
+  width: 100%;
+  height: 52px;
+}
+.logo {
+  object-fit: contain;
+  /* Normalise every brand mark to a single ivory tone on the dark ground. */
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: opacity var(--ll-dur) var(--ll-ease);
+}
+.cell:hover .logo {
+  opacity: 1;
+}
+.name {
+  font-family: var(--ll-serif);
+  font-size: var(--ll-text-base);
+  color: var(--ll-text);
+}
+.cat {
+  font-family: var(--ll-mono);
+  font-size: var(--ll-text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ll-text-faint);
+}

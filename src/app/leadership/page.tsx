@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import PageIntro from "@/components/site/PageIntro";
 import Reveal from "@/components/site/Reveal";
 import Faq from "@/components/site/Faq";
+import PhotoBreak from "@/components/site/PhotoBreak";
+import BrandHighlights from "@/components/site/BrandHighlights";
 import { JsonLd, breadcrumbSchema, webPageSchema, leadershipSchema } from "@/lib/seo/jsonld";
 import { LEADERSHIP, LEADERSHIP_AS_OF, GOVERNANCE, CORPORATE_FAQS } from "@/content/india";
 import styles from "./leadership.module.css";
@@ -56,6 +58,14 @@ export default function LeadershipPage() {
         </div>
       </section>
 
+      {/* Governance */}
+      <PhotoBreak
+        src="/images/pernod/21-maison_martell_interior_2880x1234.jpg"
+        alt="A maison interior, restrained and considered"
+        eyebrow="Governance"
+        caption="Run to a global standard, governed for scrutiny."
+      />
+
       {/* Governance pillars */}
       <section className={`ll-section ${styles.govSec}`}>
         <div className="ll-container">
@@ -71,6 +81,9 @@ export default function LeadershipPage() {
           </ul>
         </div>
       </section>
+
+      {/* Brands in focus */}
+      <BrandHighlights heading="The brands in our care." />
 
       {/* FAQ, answer-ready, emits FAQPage schema */}
       <Faq items={CORPORATE_FAQS} title="What people ask about Pernod Ricard India." eyebrow="Answers" />

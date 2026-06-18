@@ -1,6 +1,7 @@
 import PageIntro from "@/components/site/PageIntro";
 import Reveal from "@/components/site/Reveal";
 import ReportCard from "@/components/site/ReportCard";
+import BrandHighlights from "@/components/site/BrandHighlights";
 import { DOCUMENTS } from "@/content/documents";
 import styles from "./documents.module.css";
 
@@ -60,6 +61,9 @@ export default function DocumentsPage() {
           ))}
         </div>
       </section>
+
+      {/* Brands in focus */}
+      <BrandHighlights heading="The house, behind the disclosures." />
     </>
   );
 }

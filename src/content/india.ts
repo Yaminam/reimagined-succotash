@@ -39,7 +39,6 @@ export interface CorporateBrand {
 export const INDIA_BRANDS: CorporateBrand[] = [
   { name: "Royal Stag", category: "Indian Whisky", origin: "Made in India", slug: "royal-stag", note: "One of the group's flagship Indian whiskies and a cornerstone of the local portfolio." },
   { name: "Blenders Pride", category: "Indian Whisky", origin: "Made in India", slug: "blenders-pride", note: "A premium Indian whisky positioned at the heart of the prestige segment." },
-  { name: "Imperial Blue", category: "Indian Whisky", origin: "Made in India", slug: "imperial", note: "A high-volume Indian whisky brand with broad national distribution." },
   { name: "100 Pipers", category: "Scotch Whisky", origin: "International", slug: "100-pipers", note: "A Scotch whisky brand with significant presence and bottling in India." },
   { name: "Seagram's", category: "Indian Whisky", origin: "Made in India", slug: "seagrams-gin", note: "A heritage label within the locally manufactured portfolio." },
   { name: "Chivas Regal", category: "Scotch Whisky", origin: "International", slug: "chivas", note: "Blended Scotch from the international house, distributed in India." },
@@ -137,7 +136,7 @@ export interface Milestone {
 export const INDIA_STORY: Milestone[] = [
   { year: "1805", text: "The Pernod Ricard lineage begins in France, with houses whose craft still sets our standard today." },
   { year: "1993", text: "Pernod Ricard India is incorporated, betting early on the country's appetite for premium spirits." },
-  { year: "2001", text: "The group's acquisition of Seagram brings an Indian whisky portfolio, Royal Stag, Blenders Pride, Imperial Blue and 100 Pipers, into the house." },
+  { year: "2001", text: "The group's acquisition of Seagram brings an Indian whisky portfolio, Royal Stag, Blenders Pride and 100 Pipers, into the house." },
   { year: "2010s", text: "Premiumisation accelerates, and local manufacturing scales to more than thirty bottling plants and distilleries at Nashik and Behror." },
   { year: "2021", text: "The 'Good Times from a Good Place' 2030 roadmap drives water stewardship and community action across India." },
   { year: "Today", text: "The second-largest spirits company in India by revenue, manufacturing nationwide and building for the decades ahead." }];
@@ -249,7 +248,7 @@ export const CORPORATE_FAQS: Faq[] = [
   },
   {
     q: "What brands does Pernod Ricard India operate?",
-    a: "The portfolio includes locally made brands such as Royal Stag, Blenders Pride, Imperial Blue and Seagram's, alongside international brands including Chivas Regal, The Glenlivet, Ballantine's, Jameson, Absolut and Jacob's Creek.",
+    a: "The portfolio includes locally made brands such as Royal Stag, Blenders Pride and Seagram's, alongside international brands including Chivas Regal, The Glenlivet, Ballantine's, Jameson, Absolut and Jacob's Creek.",
   },
   {
     q: "How does Pernod Ricard India approach sustainability and responsibility?",

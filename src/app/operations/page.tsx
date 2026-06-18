@@ -5,6 +5,8 @@ import Reveal from "@/components/site/Reveal";
 import Faq from "@/components/site/Faq";
 import CountUp from "@/components/site/CountUp";
 import Marquee from "@/components/site/Marquee";
+import Magnetic from "@/components/site/Magnetic";
+import BrandHighlights from "@/components/site/BrandHighlights";
 import { JsonLd, breadcrumbSchema, webPageSchema } from "@/lib/seo/jsonld";
 import { OPERATIONS, INDIA_STATS, OPERATIONS_FAQS } from "@/content/india";
 import { absoluteUrl } from "@/lib/site-config";
@@ -103,10 +105,15 @@ export default function OperationsPage() {
             </p>
           </Reveal>
           <Reveal delay={0.08}>
-            <Link href="/sustainability" className={styles.cta}>Our sustainability roadmap <span aria-hidden>→</span></Link>
+            <Magnetic>
+              <Link href="/sustainability" className={styles.cta}>Our sustainability roadmap <span aria-hidden>→</span></Link>
+            </Magnetic>
           </Reveal>
         </div>
       </section>
+
+      {/* Brands in focus */}
+      <BrandHighlights heading="Made and bottled across India." />
 
       <Faq items={OPERATIONS_FAQS} title="Operations, answered." eyebrow="Answers" />
     </article>
