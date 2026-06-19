@@ -14,7 +14,7 @@
   will-change: transform;
 }
 .img {
-  object-fit: contain;
+  object-fit: cover;
 }
 .shade {
   position: absolute;

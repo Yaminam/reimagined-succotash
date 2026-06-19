@@ -7,7 +7,7 @@
   align-items: flex-end;
   overflow: hidden;
 }
-.heroImg { object-fit: contain; }
+.heroImg { object-fit: cover; }
 .heroFallback { position: absolute; inset: 0; background: radial-gradient(120% 100% at 50% 0%, #14100c, #050506 70%); }
 .heroShade { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(5,5,6,0.96) 0%, rgba(5,5,6,0.2) 55%, rgba(5,5,6,0.5) 100%); }
 .heroContent { position: relative; z-index: 2; padding-bottom: clamp(3rem, 6vw, 5rem); }
@@ -27,7 +27,7 @@
 .area { border: 1px solid var(--ll-line-soft); border-radius: var(--ll-radius); overflow: hidden; background: var(--ll-bg-2); transition: border-color var(--ll-dur) var(--ll-ease-std); }
 .area:hover { border-color: rgba(201,169,110,0.4); }
 .areaMedia { position: relative; display: block; aspect-ratio: 16 / 10; }
-.areaMedia img { object-fit: contain; transition: transform var(--ll-dur-slow) var(--ll-ease); }
+.areaMedia img { object-fit: cover; transition: transform var(--ll-dur-slow) var(--ll-ease); }
 .area:hover .areaMedia img { transform: scale(1.05); }
 .areaFallback { position: absolute; inset: 0; background: radial-gradient(120% 100% at 50% 0%, #14140c, #050506 70%); }
 .areaBody { padding: clamp(1.25rem, 2.5vw, 1.75rem); }
@@ -35,7 +35,7 @@
 .areaText { font-size: var(--ll-text-sm); line-height: 1.65; color: var(--ll-text-muted); }
 
 .bandSec { position: relative; min-height: clamp(44vh, 58vh, 66vh); display: flex; align-items: center; overflow: hidden; }
-.bandImg { object-fit: contain; }
+.bandImg { object-fit: cover; }
 .bandShade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,5,6,0.85) 0%, rgba(5,5,6,0.35) 60%, rgba(5,5,6,0.2) 100%); }
 .bandInner { position: relative; z-index: 2; }
 .bandQuote { max-width: 22ch; font-size: var(--ll-text-3xl); font-style: italic; color: var(--ll-ivory); text-shadow: 0 2px 30px rgba(0,0,0,0.6); }

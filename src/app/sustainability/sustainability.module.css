@@ -11,7 +11,7 @@
   overflow: hidden;
 }
 .heroImg {
-  object-fit: contain;
+  object-fit: cover;
 }
 .heroFallback {
   position: absolute;
@@ -99,7 +99,7 @@
   aspect-ratio: 16 / 9;
 }
 .pillarMedia img {
-  object-fit: contain;
+  object-fit: cover;
   transition: transform var(--ll-dur-slow) var(--ll-ease);
 }
 .pillar:hover .pillarMedia img { transform: scale(1.05); }
