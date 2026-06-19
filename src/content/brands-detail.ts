@@ -78,7 +78,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
       }
     ],
     "sourceUrl": "https://www.pernod-ricard.com/en/brands/100-pipers",
-    "bottle": "/images/brands/100-pipers/01-100-pipers-whisky-bottle-75c_1280-png.jpg"
+    "bottle": "/images/brands/100-pipers/01-100-pipers-whisky-bottle-75c_1280-png.png"
   },
   {
     "slug": "aberlour",
@@ -141,7 +141,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
       }
     ],
     "sourceUrl": "https://www.pernod-ricard.com/en/brands/aberlour",
-    "bottle": "/images/brands/aberlour/01-brand-aberlour-packshot-1280px-removebg-.jpg"
+    "bottle": "/images/brands/aberlour/01-brand-aberlour-packshot-1280px-removebg-.png"
   },
   {
     "slug": "absolut",
@@ -216,7 +216,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
       }
     ],
     "sourceUrl": "https://www.pernod-ricard.com/en/brands/absolut",
-    "bottle": "/images/brands/absolut/01-absolut_vodka_700ml_front_standard_trans.jpg"
+    "bottle": "/images/brands/absolut/01-absolut_vodka_700ml_front_standard_trans.png"
   },
   {
     "slug": "altos",
@@ -278,7 +278,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
       }
     ],
     "sourceUrl": "https://www.pernod-ricard.com/en/brands/altos",
-    "bottle": "/images/brands/altos/01-brand-altos-packshot-1280px-png.jpg"
+    "bottle": "/images/brands/altos/01-brand-altos-packshot-1280px-png.png"
   },
   {
     "slug": "ararat",
@@ -352,7 +352,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
       }
     ],
     "sourceUrl": "https://www.pernod-ricard.com/en/brands/ararat",
-    "bottle": "/images/brands/ararat/01-ararat_7yo_bottle-png.jpg"
+    "bottle": "/images/brands/ararat/01-ararat_7yo_bottle-png.png"
   },
   {
     "slug": "augier",
@@ -468,7 +468,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
       }
     ],
     "sourceUrl": "https://www.pernod-ricard.com/en/brands/avion",
-    "bottle": "/images/brands/avion/00-brand-avion-packshot-1280px-png.jpg"
+    "bottle": "/images/brands/avion/00-brand-avion-packshot-1280px-png.png"
   },
   {
     "slug": "ballantines",
@@ -543,7 +543,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
       }
     ],
     "sourceUrl": "https://www.pernod-ricard.com/en/brands/ballantines",
-    "bottle": "/images/brands/ballantines/01-finest-20dark-2070cl-20bottle-20ballanti.jpg"
+    "bottle": "/images/brands/ballantines/01-finest-20dark-2070cl-20bottle-20ballanti.png"
   },
   {
     "slug": "beefeater",
@@ -617,7 +617,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
       }
     ],
     "sourceUrl": "https://www.pernod-ricard.com/en/brands/beefeater",
-    "bottle": "/images/brands/beefeater/01-beefeater_1280-png.jpg"
+    "bottle": "/images/brands/beefeater/01-beefeater_1280-png.png"
   },
   {
     "slug": "blenders-pride",
@@ -664,7 +664,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
       }
     ],
     "sourceUrl": "https://www.pernod-ricard.com/en/brands/blenders-pride",
-    "bottle": "/images/brands/blenders-pride/01-blenders-pride_1280-png.jpg"
+    "bottle": "/images/brands/blenders-pride/01-blenders-pride_1280-png.png"
   },
   {
     "slug": "bumbu",
@@ -757,7 +757,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
       }
     ],
     "sourceUrl": "https://www.pernod-ricard.com/en/brand/bumbu",
-    "bottle": "/images/brands/bumbu/01-bumbu_packshot_240x640-png.jpg"
+    "bottle": "/images/brands/bumbu/01-bumbu_packshot_240x640-png.png"
   },
   {
     "slug": "chateau-sainte-marguerite",
@@ -810,7 +810,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
       }
     ],
     "sourceUrl": "https://www.pernod-ricard.com/en/brand/chateau-sainte-marguerite",
-    "bottle": "/images/brands/chateau-sainte-marguerite/00-saint_marguerite_bottle_png-png.jpg"
+    "bottle": "/images/brands/chateau-sainte-marguerite/00-saint_marguerite_bottle_png-png.png"
   },
   {
     "slug": "chivas",
@@ -900,7 +900,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
       }
     ],
     "sourceUrl": "https://www.pernod-ricard.com/en/brands/chivas",
-    "bottle": "/images/brands/chivas/01-packshot_-_chivas-png.jpg"
+    "bottle": "/images/brands/chivas/01-packshot_-_chivas-png.png"
   },
   {
     "slug": "codigo-1530",
@@ -918,7 +918,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
       }
     ],
     "sourceUrl": "https://www.pernod-ricard.com/en/brand/codigo-1530",
-    "bottle": "/images/brands/codigo-1530/01-codigo_1530_rosa_336_x_1280-png.jpg"
+    "bottle": "/images/brands/codigo-1530/01-codigo_1530_rosa_336_x_1280-png.png"
   },
   {
     "slug": "del-maguey",
@@ -1335,7 +1335,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
       }
     ],
     "sourceUrl": "https://www.pernod-ricard.com/en/brands/jameson",
-    "bottle": "/images/brands/jameson/01-brand-jameson-packshot-1280px-png.jpg"
+    "bottle": "/images/brands/jameson/01-brand-jameson-packshot-1280px-png.png"
   },
   {
     "slug": "jeffersons",
@@ -2024,7 +2024,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
       }
     ],
     "sourceUrl": "https://www.pernod-ricard.com/en/brand/belaire",
-    "bottle": "/images/brands/belaire/01-belaire-20ros-c3-a9-2075-20cl-png.jpg"
+    "bottle": "/images/brands/belaire/01-belaire-20ros-c3-a9-2075-20cl-png.png"
   },
   {
     "slug": "malfy",
@@ -3464,7 +3464,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
       }
     ],
     "sourceUrl": "https://www.pernod-ricard.com/en/brands/royal-stag",
-    "bottle": "/images/brands/royal-stag/01-750ml_eye_front_bottle-png.jpg"
+    "bottle": "/images/brands/royal-stag/01-750ml_eye_front_bottle-png.png"
   },
   {
     "slug": "scapa",
@@ -3568,7 +3568,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
       }
     ],
     "sourceUrl": "https://www.pernod-ricard.com/en/brands/seagrams-gin",
-    "bottle": "/images/brands/seagrams-gin/00-brand-seagrams-gin-packshot-1280px-png.jpg"
+    "bottle": "/images/brands/seagrams-gin/00-brand-seagrams-gin-packshot-1280px-png.png"
   },
   {
     "slug": "secret-speyside",
@@ -3948,7 +3948,7 @@ export const BRAND_DETAILS: BrandDetail[] = [
       }
     ],
     "sourceUrl": "https://www.pernod-ricard.com/en/brand/deacon",
-    "bottle": "/images/brands/deacon/01-packshot_the_deacon-png.jpg"
+    "bottle": "/images/brands/deacon/01-packshot_the_deacon-png.png"
   },
   {
     "slug": "the-glenlivet",
