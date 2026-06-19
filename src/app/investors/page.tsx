@@ -10,6 +10,9 @@ import { JsonLd, breadcrumbSchema, webPageSchema } from "@/lib/seo/jsonld";
 import Faq from "@/components/site/Faq";
 import CountUp from "@/components/site/CountUp";
 import ReportCard from "@/components/site/ReportCard";
+import PhotoBreak from "@/components/site/PhotoBreak";
+import BrandHighlights from "@/components/site/BrandHighlights";
+import Magnetic from "@/components/site/Magnetic";
 import styles from "./investors.module.css";
 
 const page = PAGES.investors;
@@ -111,6 +114,14 @@ export default function InvestorsPage() {
         </div>
       </section>
 
+      {/* Long-term value */}
+      <PhotoBreak
+        src="/images/pernod/32-maison_belle_epoque.jpg"
+        alt="A maison built to endure"
+        eyebrow="Long-term value"
+        caption="Premiumisation, built for the decades ahead."
+      />
+
       {/* Reports */}
       {DOCUMENTS.length > 0 && (
         <section className={`ll-section ${styles.reportsSec}`}>
@@ -126,7 +137,7 @@ export default function InvestorsPage() {
                 </Reveal>
               ))}
             </div>
-            <Reveal delay={0.1}><Link href="/documents" className={styles.cta}>All documents <span aria-hidden>→</span></Link></Reveal>
+            <Reveal delay={0.1}><Magnetic><Link href="/documents" className={styles.cta}>All documents <span aria-hidden>→</span></Link></Magnetic></Reveal>
           </div>
         </section>
       )}
@@ -170,12 +181,17 @@ export default function InvestorsPage() {
         <div className="ll-container">
           <Reveal><p className={`ll-display ${styles.contactLine}`}>Investor relations</p></Reveal>
           <Reveal delay={0.05}>
-            <a href="mailto:investors@pernod-ricard.com" className={styles.cta}>
-              investors@pernod-ricard.com <span aria-hidden>↗</span>
-            </a>
+            <Magnetic>
+              <a href="mailto:investors@pernod-ricard.com" className={styles.cta}>
+                investors@pernod-ricard.com <span aria-hidden>↗</span>
+              </a>
+            </Magnetic>
           </Reveal>
         </div>
       </section>
+
+      {/* Brands in focus */}
+      <BrandHighlights heading="The brands behind the equity story." />
 
       <Faq items={INVESTOR_FAQS} title="For investors, answered." eyebrow="Answers" />
     </article>

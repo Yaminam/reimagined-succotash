@@ -36,7 +36,7 @@ export default function CookieConsent() {
         <p className={styles.copy}>
           We use essential cookies to run this site, and, only with your consent, 
           analytics cookies to understand how it is used. You can change your choice at
-          any time. See our <Link href="/contact" className={styles.link}>privacy notice</Link>.
+          any time. See our <Link href="/privacy" className={styles.link}>privacy notice</Link>.
         </p>
         <div className={styles.actions}>
           <button className={styles.ghost} onClick={() => decide("rejected")}>

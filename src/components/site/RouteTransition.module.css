@@ -1,0 +1,17 @@
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 450;
+  pointer-events: none;
+  background: linear-gradient(to bottom, var(--ll-bg-2), var(--ll-bg));
+}
+.curtain::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--ll-gold);
+  opacity: 0.5;
+}

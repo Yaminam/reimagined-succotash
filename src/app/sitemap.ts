@@ -25,7 +25,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: u("/news"), changeFrequency: "daily", priority: 0.9 },
     { url: u("/contact"), changeFrequency: "yearly", priority: 0.6 },
     { url: u("/documents"), changeFrequency: "monthly", priority: 0.6 },
-    { url: u("/directory"), changeFrequency: "yearly", priority: 0.4 }];
+    { url: u("/directory"), changeFrequency: "yearly", priority: 0.4 },
+    { url: u("/privacy"), changeFrequency: "yearly", priority: 0.3 }];
 
   const brands: MetadataRoute.Sitemap = BRAND_DETAILS.map((b) => ({
     url: u(`/brands/${b.slug}`),

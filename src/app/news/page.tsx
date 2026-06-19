@@ -3,6 +3,7 @@ import Link from "next/link";
 import PageIntro from "@/components/site/PageIntro";
 import Reveal from "@/components/site/Reveal";
 import { JsonLd, breadcrumbSchema, webPageSchema } from "@/lib/seo/jsonld";
+import BrandHighlights from "@/components/site/BrandHighlights";
 import { ARTICLES, formatDate } from "@/content/news";
 import styles from "./news.module.css";
 
@@ -49,6 +50,9 @@ export default function NewsPage() {
           </ul>
         </div>
       </section>
+
+      {/* Brands in focus */}
+      <BrandHighlights heading="The brands in the headlines." />
     </>
   );
 }

@@ -1,0 +1,41 @@
+.wrap {
+  overflow: hidden;
+  padding-block: clamp(1rem, 2vw, 1.5rem);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.track {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  width: max-content;
+  animation: photo-marquee 60s linear infinite;
+}
+.reverse {
+  animation-direction: reverse;
+}
+.cell {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(220px, 26vw, 360px);
+  height: clamp(150px, 17vw, 240px);
+  border-radius: var(--ll-radius);
+  overflow: hidden;
+  border: 1px solid var(--ll-line-soft);
+}
+.img {
+  object-fit: cover;
+}
+@keyframes photo-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(calc(-50% - clamp(0.5rem, 1vw, 0.875rem)), 0, 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}

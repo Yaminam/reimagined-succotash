@@ -35,6 +35,7 @@ export default function Footer() {
       <div className={`ll-container ${styles.legal}`}>
         <p>© 2026 Pernod Ricard India Private Limited. Part of the Pernod Ricard group.</p>
         <div className={styles.socials}>
+          <Link href="/privacy" className={styles.social}>Privacy Notice</Link>
           {SOCIALS.map((s) => (
             <a key={s} href="#" className={styles.social} aria-label={s}>{s}</a>
           ))}

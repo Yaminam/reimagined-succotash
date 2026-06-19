@@ -5,6 +5,8 @@ import Reveal from "@/components/site/Reveal";
 import { JsonLd, breadcrumbSchema, webPageSchema } from "@/lib/seo/jsonld";
 import CountUp from "@/components/site/CountUp";
 import Marquee from "@/components/site/Marquee";
+import PhotoBreak from "@/components/site/PhotoBreak";
+import BrandHighlights from "@/components/site/BrandHighlights";
 import {
   POSITIONING,
   WHAT_WE_STAND_FOR,
@@ -71,6 +73,14 @@ export default function GroupPage() {
         </div>
       </section>
 
+      {/* Provenance */}
+      <PhotoBreak
+        src="/images/pernod/34-mumm_moulin_verzenay.jpg"
+        alt="Vineyard terroir under an open sky"
+        eyebrow="Provenance"
+        caption="A global house of brands, with roots deep in India."
+      />
+
       {/* What we stand for */}
       <section className={`ll-section ${styles.valuesSec}`}>
         <div className="ll-container">
@@ -136,6 +146,9 @@ export default function GroupPage() {
           </ul>
         </div>
       </section>
+
+      {/* Brands in focus */}
+      <BrandHighlights heading="The houses behind the business." />
     </article>
   );
 }

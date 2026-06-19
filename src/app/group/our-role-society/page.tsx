@@ -4,6 +4,8 @@ import PageIntro from "@/components/site/PageIntro";
 import Reveal from "@/components/site/Reveal";
 import { JsonLd, breadcrumbSchema, webPageSchema } from "@/lib/seo/jsonld";
 import CountUp from "@/components/site/CountUp";
+import Magnetic from "@/components/site/Magnetic";
+import BrandHighlights from "@/components/site/BrandHighlights";
 import { ECONOMY_CONTRIBUTION } from "@/content/india";
 import styles from "./role-society.module.css";
 
@@ -80,10 +82,15 @@ export default function OurRoleSocietyPage() {
             </p>
           </Reveal>
           <Reveal delay={0.08}>
-            <Link href="/sustainability" className={styles.cta}>Our 2030 roadmap <span aria-hidden>→</span></Link>
+            <Magnetic>
+              <Link href="/sustainability" className={styles.cta}>Our 2030 roadmap <span aria-hidden>→</span></Link>
+            </Magnetic>
           </Reveal>
         </div>
       </section>
+
+      {/* Brands in focus */}
+      <BrandHighlights heading="The brands behind the contribution." />
     </article>
   );
 }

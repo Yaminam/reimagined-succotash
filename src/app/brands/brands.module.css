@@ -111,6 +111,8 @@
 .tileLogo {
   object-fit: contain;
   object-position: center;
+  /* Inset the mark so wide wordmarks never run edge to edge; keeps it centred. */
+  padding: 14% 18%;
   filter: brightness(0) invert(1);
   opacity: 0.82;
   transition: opacity var(--ll-dur) var(--ll-ease-std), transform var(--ll-dur) var(--ll-ease);
@@ -180,7 +182,8 @@
   color: var(--ll-text-muted);
   font-style: italic;
 }
-.portfolioSec { border-top: 1px solid var(--ll-line-soft); }
+.spotlightSec { border-top: 1px solid var(--ll-line-soft); }
+.portfolioSec { border-top: 1px solid var(--ll-line-soft); padding-top: clamp(1.75rem, 3vw, 3rem); }
 .wallSec { border-top: 1px solid var(--ll-line-soft); }
 .h2 {
   margin-top: 1.25rem;
