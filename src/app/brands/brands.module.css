@@ -17,7 +17,7 @@
 .featImg {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 1.2s var(--ll-ease);
 }
 .feature:hover .featImg { transform: scale(1.05); }

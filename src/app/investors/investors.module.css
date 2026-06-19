@@ -7,7 +7,7 @@
   align-items: flex-end;
   overflow: hidden;
 }
-.heroImg { object-fit: cover; }
+.heroImg { object-fit: contain; }
 .heroFallback {
   position: absolute;
   inset: 0;
@@ -86,7 +86,7 @@
   border: 1px solid var(--ll-line-soft);
   background: var(--ll-bg-2);
 }
-.figure img { object-fit: cover; }
+.figure img { object-fit: contain; }
 .strategyGrid {
   display: grid;
   grid-template-columns: 1fr;
@@ -112,7 +112,7 @@
   border: 1px solid var(--ll-line-soft);
   background: var(--ll-bg-2);
 }
-.strategyImg img { object-fit: cover; }
+.strategyImg img { object-fit: contain; }
 
 /* image band */
 .bandSec {
@@ -122,7 +122,7 @@
   align-items: center;
   overflow: hidden;
 }
-.bandImg { object-fit: cover; }
+.bandImg { object-fit: contain; }
 .bandShade {
   position: absolute;
   inset: 0;

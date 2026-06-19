@@ -34,7 +34,7 @@
   background: var(--ll-bg);
 }
 .media img {
-  object-fit: cover;
+  object-fit: contain;
   transition: transform var(--ll-dur-slow) var(--ll-ease);
 }
 .card:hover .media img { transform: scale(1.05); }

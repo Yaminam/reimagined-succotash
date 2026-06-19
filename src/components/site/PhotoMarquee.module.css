@@ -24,7 +24,7 @@
   border: 1px solid var(--ll-line-soft);
 }
 .img {
-  object-fit: cover;
+  object-fit: contain;
 }
 @keyframes photo-marquee {
   from {

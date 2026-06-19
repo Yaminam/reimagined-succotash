@@ -12,7 +12,7 @@
   background: var(--ll-bg-2);
 }
 .heroFrame img {
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .timelineSec {
@@ -98,7 +98,7 @@
   background: var(--ll-bg-2);
 }
 .beatImg img {
-  object-fit: cover;
+  object-fit: contain;
   transition: transform var(--ll-dur-slow) var(--ll-ease);
 }
 .beat:hover .beatImg img { transform: scale(1.04); }
