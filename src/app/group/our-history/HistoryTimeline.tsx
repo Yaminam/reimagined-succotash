@@ -10,6 +10,7 @@ export interface Milestone {
   title: string;
   text: string;
   img?: string;
+  logo?: string;
 }
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -60,11 +61,13 @@ export default function HistoryTimeline({ items }: { items: Milestone[] }) {
               <span className={styles.year}>{m.year}</span>
               <h2 className={styles.beatTitle}>{m.title}</h2>
               <p className={styles.beatText}>{m.text}</p>
-              {m.img && (
+              {m.logo ? (
+                <Image src={m.logo} alt={m.title} width={220} height={78} className={styles.beatLogo} />
+              ) : m.img ? (
                 <span className={styles.beatImg}>
                   <Image src={m.img} alt={m.title} fill sizes="(max-width: 900px) 100vw, 460px" />
                 </span>
-              )}
+              ) : null}
             </div>
           </motion.li>
         ))}

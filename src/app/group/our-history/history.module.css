@@ -103,6 +103,21 @@
 }
 .beat:hover .beatImg img { transform: scale(1.04); }
 
+/* Brand-logo variant: just the mark, no background panel. */
+.beatLogo {
+  display: block;
+  margin-top: 1.5rem;
+  height: clamp(36px, 4.5vw, 52px);
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  object-position: left center;
+  filter: brightness(0) invert(1);
+  opacity: 0.88;
+  transition: opacity var(--ll-dur) var(--ll-ease);
+}
+.beat:hover .beatLogo { opacity: 1; }
+
 /* Centered, alternating timeline on larger screens */
 @media (min-width: 880px) {
   .rail,
@@ -114,4 +129,5 @@
   .right .node { left: -7px; }
   .left .beatText { margin-left: auto; }
   .left .beatImg { margin-left: auto; }
+  .left .beatLogo { margin-left: auto; }
 }
