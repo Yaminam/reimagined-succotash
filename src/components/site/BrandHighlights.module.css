@@ -36,6 +36,9 @@
 }
 .logo {
   object-fit: contain;
+  object-position: center;
+  /* Inset horizontally so wide wordmarks stay centred, not edge to edge. */
+  padding: 0 18%;
   /* Normalise every brand mark to a single ivory tone on the dark ground. */
   filter: brightness(0) invert(1);
   opacity: 0.8;

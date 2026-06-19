@@ -4,7 +4,6 @@ import Image from "next/image";
 import PageIntro from "@/components/site/PageIntro";
 import Reveal from "@/components/site/Reveal";
 import PhotoMarquee from "@/components/site/PhotoMarquee";
-import BrandHighlights from "@/components/site/BrandHighlights";
 import BrandWall from "./BrandWall";
 import { BRAND_BY_SLUG, BRAND_DETAILS } from "@/content/brands-detail";
 import { FEATURED } from "@/content/pernod-portfolio";
@@ -84,9 +83,6 @@ export default function BrandsPage() {
           </ul>
         </div>
       </section>
-
-      {/* Brands in focus, the full portfolio as ivory marks */}
-      <BrandHighlights heading="The portfolio, in full." eyebrow="The portfolio" />
 
       {/* India-first corporate portfolio */}
       <section className={`ll-section ${styles.portfolioSec}`}>
