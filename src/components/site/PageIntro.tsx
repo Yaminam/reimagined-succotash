@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import PourText from "./PourText";
 import styles from "./PageIntro.module.css";
 
 /**
@@ -26,9 +27,9 @@ export default function PageIntro({
               <span>{index}</span> {eyebrow}
             </p>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h1 className={`ll-display ${styles.title}`}>{title}</h1>
-          </Reveal>
+          <PourText as="h1" className={`ll-display ${styles.title}`} delay={0.05}>
+            {title}
+          </PourText>
         </div>
         {lede && (
           <Reveal delay={0.1} className={styles.right}>

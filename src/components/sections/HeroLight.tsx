@@ -50,12 +50,21 @@ export default function HeroLight() {
       if (!ctx) return;
       ctx.clearRect(0, 0, w, h);
 
+      // A slow, autonomous "sun" drift so the light always feels alive — even
+      // with no pointer. The cursor still pulls it; when idle it eases back to
+      // this gentle orbit.
+      const idleX = 0.5 + Math.sin(t * 0.00008) * 0.06;
+      const idleY = 0.4 + Math.cos(t * 0.00006) * 0.05;
+      mouse.tx += (idleX - mouse.tx) * 0.01;
+      mouse.ty += (idleY - mouse.ty) * 0.01;
+
       mouse.x += (mouse.tx - mouse.x) * 0.045;
       mouse.y += (mouse.ty - mouse.y) * 0.045;
       const gx = mouse.x * w;
       const gy = mouse.y * h;
-      const glow = ctx.createRadialGradient(gx, gy, 0, gx, gy, Math.max(w, h) * 0.6);
-      glow.addColorStop(0, "rgba(201,169,110,0.18)");
+      const glow = ctx.createRadialGradient(gx, gy, 0, gx, gy, Math.max(w, h) * 0.62);
+      glow.addColorStop(0, "rgba(228,212,168,0.22)");
+      glow.addColorStop(0.18, "rgba(201,169,110,0.15)");
       glow.addColorStop(0.5, "rgba(120,72,30,0.06)");
       glow.addColorStop(1, "rgba(0,0,0,0)");
       ctx.fillStyle = glow;

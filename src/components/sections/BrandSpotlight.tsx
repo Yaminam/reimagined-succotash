@@ -39,8 +39,6 @@ export default function BrandSpotlight() {
             <span className={styles.glow} />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={b.logo} alt="" className={styles.logo} />
-            <span className={styles.name}>{b.name}</span>
-            <span className={styles.cat}>{b.category}</span>
           </motion.div>
         </AnimatePresence>
       </div>

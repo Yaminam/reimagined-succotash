@@ -20,7 +20,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 500;
+  z-index: 2000;
   width: 30px;
   height: 30px;
   margin: -15px 0 0 -15px;
@@ -49,7 +49,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 501;
+  z-index: 2001;
   margin: -13px 0 0 -13px;
   pointer-events: none;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45));
@@ -76,7 +76,7 @@
 /* ---- click splash ---- */
 .splash {
   position: fixed;
-  z-index: 502;
+  z-index: 2002;
   width: 0;
   height: 0;
   pointer-events: none;
